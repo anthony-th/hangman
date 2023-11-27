@@ -20,4 +20,41 @@
       }
     }
   }
+  .menu {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+
+.item-link,
+.menu {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  color: $dark;
+  position: relative;
+  &:visited {
+    color: $dark;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: $dark;
+    width: 0;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+      transition: all 0.3s ease-in-out;
+    }
+  }
 }
