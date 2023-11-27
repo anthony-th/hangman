@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Irish coffee",
+    "img": "./assets/img/menu/coffee-1.webp",
+    "description": "Fragrant black coffee with Jameson Irish whiskey and whipped milk",
+    "price": "$7.00"
+  },
+  {
+    "name": "Kahlua coffee",
+    "img": "./assets/img/menu/coffee-2.webp",
+    "description": "Classic coffee with milk and Kahlua liqueur under a cap of frothed milk",
+    "price": "$7.00"
+  }
+]

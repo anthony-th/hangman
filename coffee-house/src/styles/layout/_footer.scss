@@ -1,0 +1,44 @@
+.footer {
+  background-color: $gray;
+  padding: 100px;
+  max-width: 1360px;
+  margin: 100px auto 40px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  .footer-block {
+    max-width: 530px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    .left-title {
+      font-family: Inter;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 125%;
+      color: $text-light;
+    }
+    .social-block {
+      display: flex;
+      gap: 12px;
+      .social-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 100px;
+        border: 1px solid $accent-light;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background: #E1D4C9;
+          svg {
+            path {
+              stroke: $dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
