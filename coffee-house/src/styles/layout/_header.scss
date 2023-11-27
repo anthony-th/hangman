@@ -8,6 +8,18 @@
   .logo {
     max-width: 100px;
     height: 60px;
+    &:hover {
+      .logo-image {
+        svg {
+          path:first-child {
+            fill: $dark;
+          }
+          path:nth-child(n+2):nth-child(-n+9) {
+            fill: $accent;
+          }
+        }
+      }
+    }
   }
   .nav {
     display: flex;
@@ -23,7 +35,7 @@
   .menu {
     display: flex;
     gap: 8px;
-    align-items: flex-start;
+    align-items: flex-start ;
   }
 }
 
