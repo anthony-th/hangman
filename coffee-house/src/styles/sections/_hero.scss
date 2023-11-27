@@ -14,16 +14,13 @@
     font-family: Inter;
     font-size: 16px;
     font-weight: 400;
+    font-style: normal;
     color: $background-body;
     font-feature-settings: 'clig' off, 'liga' off;
     .hero-title {
       font-size: 72px;
       font-weight: 600;
-      line-height: 105%;
-      span {
-        color: $accent;
-        font-style: italic;
-      }
+      line-height: 76px;
     }
     .hero-text {
       line-height: 150%;
@@ -52,7 +49,7 @@
       }
       &:hover {
         span {
-          left: -2px;
+          left: 2px;
         }
         &::after {
           opacity: 1;
