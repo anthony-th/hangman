@@ -20,6 +20,9 @@ mobileLinks.classList.add('mobile-links', 'cursor-pointer');
 
 const linkStore = document.createElement('a');
 linkStore.classList.add('mobile-link');
+linkStore.href = 'https://www.apple.com/app-store/';
+linkStore.target = '_blank';
+
 const storeIcon = document.createElement('svg');
 storeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
 <path d="M26.7073 18.6307C26.6704 14.6324 30.065 12.6872 30.2203 12.5966C28.2977 9.86366 25.3178 9.49026 24.2707 9.46048C21.7679 9.20369 19.3403 10.9206 18.0654 10.9206C16.765 10.9206 14.8017 9.48529 12.6858 9.52747C9.96293 9.56841 7.41566 11.1055 6.0186 13.4923C3.13542 18.359 5.28572 25.5108 8.04802 29.4446C9.42981 31.3712 11.0444 33.5223 13.1578 33.4466C15.2254 33.3635 15.9978 32.1614 18.4929 32.1614C20.9651 32.1614 21.6903 33.4466 23.8457 33.3983C26.0647 33.3635 27.4618 31.463 28.7952 29.519C30.392 27.3108 31.0333 25.1362 31.0588 25.0245C31.0066 25.0071 26.7493 23.4229 26.7073 18.6307Z" fill="#403F3D"/>
@@ -39,6 +42,8 @@ storeText2.textContent = `App Store`;
 
 const linkGogl = document.createElement('a');
 linkGogl.classList.add('mobile-link');
+linkGogl.href = 'https://play.google.com/store/games';
+linkGogl.target = '_blank';
 
 const goglIcon = document.createElement('svg');
 goglIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
