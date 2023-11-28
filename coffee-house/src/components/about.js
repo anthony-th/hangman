@@ -5,6 +5,7 @@ import imgForGaller4 from '../assets/img/about/about-4.webp';
 
 export const aboutSection = document.createElement('section');
 aboutSection.classList.add('section', 'about-section');
+aboutSection.id = 'about';
 
 const aboutTitle = document.createElement('h2');
 aboutTitle.classList.add('title');

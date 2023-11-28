@@ -2,6 +2,7 @@ import mobileImage from '../assets/img/mobile-screens.webp';
 
 export const mobileSection = document.createElement('section');
 mobileSection.classList.add('section', 'mobile-section');
+mobileSection.id = 'mobileapp';
 
 const mobileLinksText = document.createElement('div');
 mobileLinksText.classList.add('mobile-block');

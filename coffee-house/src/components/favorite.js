@@ -2,6 +2,7 @@ import sliderFor1week from '../assets/img/slider/coffee-slider-1.webp';
 
 export const favoriteSection = document.createElement('section');
 favoriteSection.classList.add('section', 'favorite-section');
+favoriteSection.id = 'favorite';
 const favoriteTitle = document.createElement('h2');
 favoriteTitle.classList.add('title');
 favoriteTitle.innerHTML = `Choose your <span class="italic-accent">favorite</span> coffee`;
