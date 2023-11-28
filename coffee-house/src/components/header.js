@@ -2,7 +2,7 @@ export const header = document.createElement('header');
 header.classList.add('header');
 const logo = document.createElement('a');
 logo.classList.add('logo');
-logo.href = './';
+logo.href = './index.html';
 const logoImage = document.createElement('svg');
 logoImage.classList.add('logo-image');
 logoImage.innerHTML = `<svg width="100" height="60" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@ itemLink4.textContent = 'Contact us';
 itemLink4.href = '#contactus';
 const menu = document.createElement('a');
 menu.classList.add('menu');
-menu.href = './menu';
+menu.href = './menu.html';
 const menuText = document.createTextNode('Menu');
 const menuImg = document.createElement('svg');
 menuImg.classList.add('menu__image');
@@ -67,6 +67,7 @@ menuImg.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
 <path d="M6.66634 7.5V7.08333C6.66634 5.70262 7.78563 4.58333 9.16634 4.58333V4.58333C10.0868 4.58333 10.833 3.83714 10.833 2.91667V2.5" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M13.333 9.16675H15.4163C16.5669 9.16675 17.4997 10.0995 17.4997 11.2501C17.4997 12.4007 16.5669 13.3334 15.4163 13.3334H14.1663" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
+
 
 logo.append(logoImage);
 nav.append(list);

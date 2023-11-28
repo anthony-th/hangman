@@ -1,0 +1,66 @@
+.menu-section {
+  padding: 0 0 100px;
+  max-width: 1360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  .menu-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    .title {
+      max-width: 800px;
+      text-align: center;
+    }
+    .tabs-list {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      .tabs-link {
+        border-radius: 100px;
+        display: flex;
+        padding: 8px 16px 8px 8px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        background: $gray;
+        .link-block {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $text-light;
+          border-radius: 100px;
+          .link-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+        .link-text {
+          font-family: Inter;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%;
+          color: $text-light;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          background: transparent;
+          border: 1px solid $accent-light;
+          .link-block {
+            background: $accent-light;
+          }
+          .link-text {
+            color: $dark;
+          }
+        }
+      }
+    }
+  }
+}

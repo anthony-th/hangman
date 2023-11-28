@@ -6,10 +6,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "src", "index.js"),
+  entry: {
+    index: path.resolve(__dirname, "src", "index.js"),
+    menu: path.resolve(__dirname, "src", "menu.js"),
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "index.[contenthash].js",
+    filename: "[name].[contenthash].js",
   },
   resolve: {
     extensions: ['.js'],
@@ -66,6 +69,13 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src", "index.html"),
+      filename: "index.html",
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src", "menu.html"),
+      filename: "menu.html",
+      chunks: ["menu"],
     }),
     new FaviconsWebpackPlugin({
       logo: "./src/assets/img/favicon.png",
