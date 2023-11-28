@@ -47,14 +47,6 @@
         left: 10px;
         transition: all 0.7s ease-in-out;
       }
-      &:hover {
-        span {
-          left: 2px;
-        }
-        &::after {
-          opacity: 1;
-        }
-      }
     }
   }
 }

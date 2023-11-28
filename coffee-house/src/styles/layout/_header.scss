@@ -8,18 +8,6 @@
   .logo {
     max-width: 100px;
     height: 60px;
-    &:hover {
-      .logo-image {
-        svg {
-          path:first-child {
-            fill: $dark;
-          }
-          path:nth-child(n+2):nth-child(-n+9) {
-            fill: $accent;
-          }
-        }
-      }
-    }
   }
   .nav {
     display: flex;
@@ -68,11 +56,5 @@
     transform: translateX(-50%);
     z-index: 2;
     transition: all 0.3s ease-in-out;
-  }
-  &:hover {
-    &::after {
-      width: 100%;
-      transition: all 0.3s ease-in-out;
-    }
   }
 }

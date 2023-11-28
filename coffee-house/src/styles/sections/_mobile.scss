@@ -47,18 +47,6 @@
           width: 36px;
           height: 36px;
         }
-        &:hover {
-          background-color: $gray;
-          .links-title,
-          .links-subtitle {
-            color: $text-light;
-          }
-          svg {
-            path {
-              fill: $text-light;
-            }
-          }
-        }
       }
     }
   }

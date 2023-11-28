@@ -59,16 +59,6 @@
           .link-text {
             color: $dark;
           }
-          &:hover {
-            background: $gray;
-            cursor: pointer;
-            .link-block {
-              background: $text-light;
-            }
-            .link-text {
-              color: $text-light;
-            }
-          }
         }
       }
     }
@@ -123,13 +113,6 @@
           position: absolute;
           left: 20px;
           bottom: 20px;
-        }
-      }
-      &:hover {
-        .item-wrapper {
-          .item-img {
-            scale: 0.93;
-          }
         }
       }
     }
