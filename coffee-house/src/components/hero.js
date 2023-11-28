@@ -10,7 +10,7 @@ heroSubtitle.textContent = 'With its inviting atmosphere and delicious coffee op
 heroSubtitle.classList.add('hero-text');
 const heroButton = document.createElement('a');
 heroButton.classList.add('hero-btn', 'cursor-pointer');
-heroButton.href = './menu';
+heroButton.href = './menu.html';
 heroButton.innerHTML = '<span>Menu</span>';
 
 heroContent.append(heroTitle, heroSubtitle, heroButton);

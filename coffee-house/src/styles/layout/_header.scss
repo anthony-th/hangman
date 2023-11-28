@@ -29,6 +29,12 @@
       gap: 40px;
       .list-item {
         list-style: none;
+        .item-link {
+          color: $dark;
+          &:visited {
+            color: $dark;
+          }
+        }
       }
     }
   }
@@ -39,15 +45,15 @@
   }
 }
 
-.item-link,
+.list-item,
 .menu {
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
-  color: $dark;
   position: relative;
+  color: $dark;
   &:visited {
     color: $dark;
   }

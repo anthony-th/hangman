@@ -47,21 +47,22 @@
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
-    line-height: 125%;
     color: $text-light;
     .right-title {
       font-size: 24px;
+      line-height: 125%;
     }
     .contacts-list {
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
       .contacts-link {
         display: flex;
         gap: 8px;
         position: relative;
         width: max-content;
+        font-family: Inter;
         &:visited {
           color: $text-light;
         }
@@ -89,6 +90,10 @@
           display: flex;
           align-items: center;
           color: $text-light;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 150%;
           &:visited {
             color: $text-light;
           }
