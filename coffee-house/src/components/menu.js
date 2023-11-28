@@ -54,10 +54,14 @@ manuList.classList.add('menu-list');
 
 dataJson.forEach((item) => {
   const manuListItem = document.createElement('div');
-  manuListItem.classList.add('list-item');
+  manuListItem.classList.add('list-item', 'cursor-pointer');
+  const listImgWrapper = document.createElement('div');
+  listImgWrapper.classList.add('item-wrapper');
   const listItemImg = document.createElement('img');
   listItemImg.classList.add('item-img');
   listItemImg.src = item.img;
+  const listTextWrapper = document.createElement('div');
+  listTextWrapper.classList.add('text-wrapper');
   const listItemTitle = document.createElement('h3');
   listItemTitle.classList.add('item-title');
   listItemTitle.textContent = item.name;
@@ -68,7 +72,9 @@ dataJson.forEach((item) => {
   listItemPrice.classList.add('item-price');
   listItemPrice.textContent = item.price;
 
-  manuListItem.append(listItemImg, listItemTitle, listItemText, listItemPrice);
+  listTextWrapper.append(listItemTitle, listItemText, listItemPrice);
+  listImgWrapper.append(listItemImg);
+  manuListItem.append(listImgWrapper, listTextWrapper);
   manuList.append(manuListItem);
 });
 

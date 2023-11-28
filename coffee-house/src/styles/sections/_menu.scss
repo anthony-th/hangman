@@ -63,4 +63,53 @@
       }
     }
   }
+  .menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    .list-item {
+      display: flex;
+      flex-direction: column;
+      width: 310px;
+      height: 506px;
+      border: 1px solid $accent-light;
+      border-radius: 40px;
+      .item-wrapper {
+        border-radius: 40px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 310px;
+        height: 310px;
+        .item-img {
+          scale: 1.1;
+        }
+      }
+      .text-wrapper {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-family: Inter;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 125%;
+        color: $dark;
+        .item-text {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%;
+        }
+      }
+      &:hover {
+        .item-wrapper {
+          .item-img {
+            scale: 1;
+          }
+        }
+      }
+    }
+  }
 }
