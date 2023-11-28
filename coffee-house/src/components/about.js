@@ -19,24 +19,28 @@ overflowFor1.classList.add('img-wrapper');
 const imgGalery1 = document.createElement('img');
 imgGalery1.classList.add('about-img');
 imgGalery1.src = imgForGaller1;
+imgGalery1.alt = '';
 
 const overflowFor2 = document.createElement('div');
 overflowFor2.classList.add('img-wrapper');
 const imgGalery2 = document.createElement('img');
 imgGalery2.classList.add('about-img');
 imgGalery2.src = imgForGaller3;
+imgGalery2.alt = '';
 
 const overflowFor3 = document.createElement('div');
 overflowFor3.classList.add('img-wrapper');
 const imgGalery3 = document.createElement('img');
 imgGalery3.classList.add('about-img');
 imgGalery3.src = imgForGaller4;
+imgGalery3.alt = '';
 
 const overflowFor4 = document.createElement('div');
 overflowFor4.classList.add('img-wrapper');
 const imgGalery4 = document.createElement('img');
 imgGalery4.classList.add('about-img');
 imgGalery4.src = imgForGaller2;
+imgGalery4.alt = '';
 
 overflowFor1.append(imgGalery1);
 overflowFor2.append(imgGalery2);

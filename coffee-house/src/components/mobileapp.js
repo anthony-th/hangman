@@ -67,6 +67,7 @@ goglText2.textContent = `Google Play`;
 const mobileImg = document.createElement('img');
 mobileImg.classList.add('mobile-img');
 mobileImg.src = mobileImage;
+mobileImg.alt = '';
 
 mobileLinksText.append(mobileTitle, mobileText, mobileLinks);
 storeTextBlock.append(storeText1, storeText2);

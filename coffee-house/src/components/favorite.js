@@ -21,6 +21,7 @@ favoriteSlider.classList.add('slider');
 const sliderImg = document.createElement('img');
 sliderImg.classList.add('slider-img');
 sliderImg.src = sliderFor1week;
+sliderImg.alt = '';
 
 const favoriteTextBlock = document.createElement('div');
 favoriteTextBlock.classList.add('slider-textblock');
