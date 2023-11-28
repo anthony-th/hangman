@@ -9,4 +9,5 @@ itemLink2.href = './index.html#about';
 itemLink3.href = './index.html#mobileapp';
 menu.style.pointerEvents = 'none';
 menu.href = 'none';
+menu.classList.add('link-active');
 document.body.append(header, menuMain, footer);
