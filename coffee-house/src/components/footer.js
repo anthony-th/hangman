@@ -50,7 +50,7 @@ iconAddress.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" heig
 </svg>`;
 const linkAddress = document.createElement('p');
 linkAddress.classList.add('address-link');
-linkAddress.textContent = `8558 Green Rd.,  LA`;
+linkAddress.innerHTML = `8558 Green Rd.,&nbsp;&nbsp;LA`;
 
 const tel = document.createElement('a');
 tel.classList.add('contacts-link');

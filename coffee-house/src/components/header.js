@@ -55,6 +55,12 @@ const itemLink4 = document.createElement('a');
 itemLink4.classList.add('item-link', 'cursor-pointer'); 
 itemLink4.textContent = 'Contact us';
 itemLink4.href = '#contactus';
+const burgerMenu = document.createElement('div');
+burgerMenu.classList.add('burger');
+const burgerLine1 = document.createElement('hr');
+burgerLine1.classList.add('burger-line');
+const burgerLine2 = document.createElement('hr');
+burgerLine2.classList.add('burger-line');
 export const menu = document.createElement('a');
 menu.classList.add('menu');
 menu.href = './menu.html';
@@ -70,7 +76,8 @@ menuImg.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
 
 
 logo.append(logoImage);
-nav.append(list);
+burgerMenu.append(burgerLine1, burgerLine2);
+nav.append(list, burgerMenu);
 listItem1.append(itemLink1);
 listItem2.append(itemLink2);
 listItem3.append(itemLink3);

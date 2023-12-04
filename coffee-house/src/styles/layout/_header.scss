@@ -25,6 +25,24 @@
         }
       }
     }
+    .burger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      border: 1px solid $gray;
+      flex-direction: column;
+      gap: 8px;
+      .burger-line {
+        width: 16px;
+        height: 1px;
+        background-color: $gray;
+        border-radius: 2px;
+        border: none;
+      }
+    }
   }
   .menu {
     display: flex;
