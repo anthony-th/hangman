@@ -56,7 +56,7 @@ itemLink4.classList.add('item-link', 'cursor-pointer');
 itemLink4.textContent = 'Contact us';
 itemLink4.href = '#contactus';
 const burgerMenu = document.createElement('div');
-burgerMenu.classList.add('burger');
+burgerMenu.classList.add('burger', 'cursor-pointer');
 const burgerLine1 = document.createElement('hr');
 burgerLine1.classList.add('burger-line');
 const burgerLine2 = document.createElement('hr');

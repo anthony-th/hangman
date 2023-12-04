@@ -3,11 +3,13 @@
     &:hover {
       .logo-image {
         svg {
-          path:first-child {
-            fill: $dark;
-          }
-          path:nth-child(n+2):nth-child(-n+9) {
-            fill: $accent;
+          path {
+            &:first-child {
+              fill: $dark;
+            }
+            &:nth-child(n+2):nth-child(-n+9) {
+              fill: $accent;
+            }
           }
         }
       }
