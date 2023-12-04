@@ -36,4 +36,11 @@
   .footer .right-block {
     min-height: 186px;
   }
+  .menu-section .menu-list .card:nth-child(7),
+  .menu-section .menu-list .card:nth-child(8) {
+    display: none;
+  }
+  .menu-section .tabs-reload {
+    display: flex;
+  }
 }

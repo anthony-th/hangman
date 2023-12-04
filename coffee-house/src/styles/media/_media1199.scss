@@ -7,9 +7,10 @@
     display: flex;
   }
   .menu-section .menu-list .card:nth-child(5),
-  .menu-section .menu-list .card:nth-child(6),
-  .menu-section .menu-list .card:nth-child(7),
-  .menu-section .menu-list .card:nth-child(8) {
+  .menu-section .menu-list .card:nth-child(6) {
     display: none;
+  }
+  .menu-list {
+    max-width: 700px;
   }
 }
