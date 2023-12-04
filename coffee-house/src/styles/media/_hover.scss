@@ -1,4 +1,4 @@
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .logo {
     &:hover {
       .logo-image {
@@ -74,7 +74,7 @@
       .hero-btn {
         &:hover {
           span {
-            left: 2px;
+            left: -4px;
           }
           &::after {
             opacity: 1;

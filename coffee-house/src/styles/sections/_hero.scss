@@ -33,6 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: 600;
       color: $dark;
       span {
         position: relative;
@@ -44,9 +45,26 @@
         opacity: 0;
         width: 20px;
         height: 20px;
-        left: 10px;
+        left: 5px;
         transition: all 0.7s ease-in-out;
       }
     }
+  }
+  @media screen and (max-width: 1439px) {
+    // .hero-section {
+      .hero-block {
+        .hero-btn {
+
+            span {
+              left: -4px;
+            }
+            &::after {
+              opacity: 1;
+              left: 5px;
+            }
+          
+        }
+      }
+    // }
   }
 }
