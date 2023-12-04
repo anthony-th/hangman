@@ -1,16 +1,26 @@
 @media screen and (max-width: 1199px) {
-  .header .nav .list,
-  .header .menu {
-    display: none;
+  .header {
+    .menu {
+      display: none;
+    }
+    .nav {
+      .list {
+        display: none;
+      }
+      .burger {
+        display: flex;
+      }
+    }
   }
-  .header .nav .burger {
-    display: flex;
-  }
-  .menu-section .menu-list .card:nth-child(5),
-  .menu-section .menu-list .card:nth-child(6) {
-    display: none;
-  }
-  .menu-list {
-    max-width: 700px;
+  .menu-section {
+    .menu-list {
+      max-width: 700px;
+      .card {
+        &:nth-child(5),
+        &:nth-child(6) {
+          display: none;
+        }
+      }
+    }
   }
 }
