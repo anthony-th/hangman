@@ -11,4 +11,41 @@
   .footer .footer-block .left-title {
     font-size: 46px;
   }
+  .favorite-section .slider-block .arrow {
+    display: none;
+  }
+  .favorite-section .slider-block .slider .slider-img {
+    max-width: 348px;
+    max-height: 348px;
+  }
+  .favorite-section .slider-block .slider {
+    min-width: auto;
+  }
+  .hero-section {
+    padding: 60px 16px;
+  }
+  .hero-section .hero-block .hero-title {
+    font-size: 42px;
+    line-height: 115%;
+  }
+  .favorite-section .title,
+  .title {
+    font-size: 32px;
+  }
+  .about-section .about-block .img-wrapper:nth-child(1), .about-section .about-block .img-wrapper:nth-child(4) {
+    max-width: 348px;
+    height: 590px;
+  }
+  .about-section .about-block .img-wrapper .about-img {
+    scale: 1.24;
+  }
+  .about-section {
+    gap: 39px;
+  }
+  .mobile-section .mobile-block .mobile-links {
+    flex-direction: column;
+  }
+  .mobile-section {
+    gap: 40px;
+  }
 }
