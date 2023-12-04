@@ -8,6 +8,7 @@
   .menu-tabs {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 40px;
     .title {
       max-width: 800px;
