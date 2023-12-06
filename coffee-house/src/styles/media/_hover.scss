@@ -36,9 +36,11 @@
   }
   .about-section {
     .about-block {
-      .about-img {
+      .img-wrapper {
         &:hover {
-          scale: 1;
+          .about-img {
+            scale: 1;
+          }
         }
       }
     }
