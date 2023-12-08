@@ -4,10 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 39px;
   .menu-tabs {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 40px;
     .title {
       max-width: 800px;
@@ -67,6 +68,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    justify-content: center;
+    align-items: center;
     .card {
       display: flex;
       flex-direction: column;
@@ -115,6 +118,19 @@
           bottom: 20px;
         }
       }
+    }
+  }
+  .tabs-reload {
+    display: none;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border: 1px solid $gray;
+    svg {
+      width: 24px;
+      height: 24px;
     }
   }
 }

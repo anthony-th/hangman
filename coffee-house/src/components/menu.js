@@ -83,6 +83,15 @@ dataJson.forEach((item) => {
   manuList.append(menuListItem);
 });
 
+const tabsReload = document.createElement('div');
+tabsReload.classList.add('tabs-reload');
+const svgReload =  document.createElement('svg');
+svgReload.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 8H21.4C21.7314 8 22 7.73137 22 7.4V3" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
+tabsReload.append(svgReload);
 tabsLink1Iconblock.append(tabsLink1Icon);
 tabsLink2Iconblock.append(tabsLink2Icon);
 tabsLink3Iconblock.append(tabsLink3Icon);
@@ -91,4 +100,4 @@ tabsLink2.append(tabsLink2Iconblock, tabsLink2Text);
 tabsLink3.append(tabsLink3Iconblock, tabsLink3Text);
 tabsList.append(tabsLink1, tabsLink2, tabsLink3);
 manuTabs.append(manuTitle, tabsList);
-menuSection.append(manuTabs, manuList);
+menuSection.append(manuTabs, manuList, tabsReload);

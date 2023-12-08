@@ -1,13 +1,15 @@
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .logo {
     &:hover {
       .logo-image {
         svg {
-          path:first-child {
-            fill: $dark;
-          }
-          path:nth-child(n+2):nth-child(-n+9) {
-            fill: $accent;
+          path {
+            &:first-child {
+              fill: $dark;
+            }
+            &:nth-child(n+2):nth-child(-n+9) {
+              fill: $accent;
+            }
           }
         }
       }
@@ -34,9 +36,11 @@
   }
   .about-section {
     .about-block {
-      .about-img {
+      .img-wrapper {
         &:hover {
-          scale: 1;
+          .about-img {
+            scale: 1;
+          }
         }
       }
     }
@@ -74,7 +78,7 @@
       .hero-btn {
         &:hover {
           span {
-            left: 2px;
+            left: -4px;
           }
           &::after {
             opacity: 1;
