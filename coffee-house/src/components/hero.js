@@ -1,5 +1,16 @@
 export const heroSection = document.createElement('section');
 heroSection.classList.add('section', 'hero-section');
+const heroVideoAutoPlay = document.createElement('video');
+heroVideoAutoPlay.classList.add('hero-video');
+heroVideoAutoPlay.autoplay = true;
+heroVideoAutoPlay.loop = true;
+heroVideoAutoPlay.muted = true;
+heroVideoAutoPlay.controls = false;
+heroVideoAutoPlay.controlslist = 'nodownload';
+heroVideoAutoPlay.poster = '../assets/img/img-hero.webp';
+const videoSource = document.createElement('source');
+videoSource.src = './assets/videos/video-2160p.webm';
+videoSource.type = 'video/webm';
 const heroContent = document.createElement('div');
 heroContent.classList.add('hero-block');
 const heroTitle = document.createElement('h1');
@@ -14,4 +25,6 @@ heroButton.href = './menu.html';
 heroButton.innerHTML = '<span>Menu</span>';
 
 heroContent.append(heroTitle, heroSubtitle, heroButton);
+heroVideoAutoPlay.append(videoSource);
+heroSection.append(heroVideoAutoPlay);
 heroSection.append(heroContent);

@@ -63,7 +63,7 @@ const linkTel = document.createElement('p');
 linkTel.classList.add('tel-link');
 linkTel.textContent = `+1 (603) 555-0123`;
 
-const timeToWork = document.createElement('a');
+const timeToWork = document.createElement('p');
 timeToWork.classList.add('contacts-link');
 const iconTime = document.createElement('svg');
 iconTime.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">

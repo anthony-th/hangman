@@ -1,11 +1,18 @@
 .hero-section {
   max-width: 1360px;
   padding: 100px;
-  background-image: url('../assets/img/img-hero.webp');
-  border-radius: 40px;
-  background-position: center center;
-  background-size: cover;
   display: flex;
+  position: relative;
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+  }
   .hero-block {
     display: flex;
     flex-direction: column;
@@ -17,6 +24,8 @@
     font-style: normal;
     color: $text-light;
     font-feature-settings: 'clig' off, 'liga' off;
+    position: relative;
+    z-index: 3;
     .hero-title {
       font-size: 72px;
       font-weight: 600;
