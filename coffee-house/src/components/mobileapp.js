@@ -1,5 +1,3 @@
-import mobileImage from '../assets/img/mobile-screens.webp';
-
 export const mobileSection = document.createElement('section');
 mobileSection.classList.add('section', 'mobile-section');
 mobileSection.id = 'mobileapp';
@@ -66,7 +64,7 @@ goglText2.textContent = `Google Play`;
 
 const mobileImg = document.createElement('img');
 mobileImg.classList.add('mobile-img');
-mobileImg.src = mobileImage;
+mobileImg.src = './assets/img/mobile-screens.webp';
 mobileImg.alt = '';
 
 mobileLinksText.append(mobileTitle, mobileText, mobileLinks);

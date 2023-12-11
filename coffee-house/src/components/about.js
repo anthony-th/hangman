@@ -1,8 +1,3 @@
-import imgForGaller1 from '../assets/img/about/about-1.webp';
-import imgForGaller2 from '../assets/img/about/about-2.webp';
-import imgForGaller3 from '../assets/img/about/about-3.webp';
-import imgForGaller4 from '../assets/img/about/about-4.webp';
-
 export const aboutSection = document.createElement('section');
 aboutSection.classList.add('section', 'about-section');
 aboutSection.id = 'about';
@@ -18,28 +13,28 @@ const overflowFor1 = document.createElement('div');
 overflowFor1.classList.add('img-wrapper');
 const imgGalery1 = document.createElement('img');
 imgGalery1.classList.add('about-img');
-imgGalery1.src = imgForGaller1;
+imgGalery1.src = './assets/img/about/about-1.webp';
 imgGalery1.alt = '';
 
 const overflowFor2 = document.createElement('div');
 overflowFor2.classList.add('img-wrapper');
 const imgGalery2 = document.createElement('img');
 imgGalery2.classList.add('about-img');
-imgGalery2.src = imgForGaller2;
+imgGalery2.src = './assets/img/about/about-2.webp';
 imgGalery2.alt = '';
 
 const overflowFor3 = document.createElement('div');
 overflowFor3.classList.add('img-wrapper');
 const imgGalery3 = document.createElement('img');
 imgGalery3.classList.add('about-img');
-imgGalery3.src = imgForGaller3;
+imgGalery3.src = './assets/img/about/about-3.webp';
 imgGalery3.alt = '';
 
 const overflowFor4 = document.createElement('div');
 overflowFor4.classList.add('img-wrapper');
 const imgGalery4 = document.createElement('img');
 imgGalery4.classList.add('about-img');
-imgGalery4.src = imgForGaller4;
+imgGalery4.src = './assets/img/about/about-4.webp';
 imgGalery4.alt = '';
 
 overflowFor1.append(imgGalery1);

@@ -1,5 +1,3 @@
-import sliderFor1week from '../assets/img/slider/coffee-slider-1.webp';
-
 export const favoriteSection = document.createElement('section');
 favoriteSection.classList.add('section', 'favorite-section');
 favoriteSection.id = 'favorite';
@@ -21,7 +19,7 @@ const favoriteSlider = document.createElement('div');
 favoriteSlider.classList.add('slider');
 const sliderImg = document.createElement('img');
 sliderImg.classList.add('slider-img');
-sliderImg.src = sliderFor1week;
+sliderImg.src = './assets/img/slider/coffee-slider-1.webp';
 sliderImg.alt = '';
 
 const favoriteTextBlock = document.createElement('div');
