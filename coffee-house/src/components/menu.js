@@ -1,7 +1,4 @@
-import cof from '../assets/img/cof.png';
-import tee from '../assets/img/tee.png';
-import chees from '../assets/img/chees.png';
-import dataJson from '../data/coffee.json';
+import dataProductsJson from '../data/products.json';
 
 export const menuSection = document.createElement('section');
 menuSection.classList.add('section', 'menu-section');
@@ -22,7 +19,7 @@ const tabsLink1Iconblock = document.createElement('div');
 tabsLink1Iconblock.classList.add('link-block');
 const tabsLink1Icon = document.createElement('img');
 tabsLink1Icon.classList.add('link-icon');
-tabsLink1Icon.src = cof;
+tabsLink1Icon.src = './assets/img/cof.png';
 tabsLink1Icon.alt = '';
 const tabsLink1Text = document.createElement('p');
 tabsLink1Text.classList.add('link-text');
@@ -34,7 +31,7 @@ const tabsLink2Iconblock = document.createElement('div');
 tabsLink2Iconblock.classList.add('link-block');
 const tabsLink2Icon = document.createElement('img');
 tabsLink2Icon.classList.add('link-icon');
-tabsLink2Icon.src = tee;
+tabsLink2Icon.src = './assets/img/tee.png';
 tabsLink2Icon.alt = '';
 const tabsLink2Text = document.createElement('p');
 tabsLink2Text.classList.add('link-text');
@@ -46,7 +43,7 @@ const tabsLink3Iconblock = document.createElement('div');
 tabsLink3Iconblock.classList.add('link-block');
 const tabsLink3Icon = document.createElement('img');
 tabsLink3Icon.classList.add('link-icon');
-tabsLink3Icon.src = chees;
+tabsLink3Icon.src = './assets/img/chees.png';
 tabsLink3Icon.alt = '';
 
 const tabsLink3Text = document.createElement('p');
@@ -56,7 +53,7 @@ tabsLink3Text.textContent = 'Dessert';
 const manuList = document.createElement('div');
 manuList.classList.add('menu-list');
 
-dataJson.forEach((item) => {
+dataProductsJson.forEach((item) => {
   const menuListItem = document.createElement('div');
   menuListItem.classList.add('card', 'cursor-pointer');
   const listImgWrapper = document.createElement('div');
@@ -75,7 +72,7 @@ dataJson.forEach((item) => {
   listItemText.textContent = item.description;
   const listItemPrice = document.createElement('h4');
   listItemPrice.classList.add('item-price');
-  listItemPrice.textContent = item.price;
+  listItemPrice.textContent = `$${item.price}`;
 
   listTextWrapper.append(listItemTitle, listItemText, listItemPrice);
   listImgWrapper.append(listItemImg);
