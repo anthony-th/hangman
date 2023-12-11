@@ -53,9 +53,12 @@ tabsLink3Text.textContent = 'Dessert';
 const manuList = document.createElement('div');
 manuList.classList.add('menu-list');
 
+let initialQuantityProducts;
+
 function filterProducts(category) { 
   manuList.innerHTML = '';
   const filterProduct = dataProductsJson.filter((el) => el.category === category);
+  initialQuantityProducts = filterProduct.length;
   filterProduct.forEach((item) => {
     const menuListItem = document.createElement('div');
     menuListItem.classList.add('card', 'cursor-pointer');
@@ -82,6 +85,7 @@ function filterProducts(category) {
     menuListItem.append(listImgWrapper, listTextWrapper);
     manuList.append(menuListItem);
   });
+  return initialQuantityProducts;
 }
 
 const tabsReload = document.createElement('div');
@@ -97,6 +101,7 @@ tabsLink1.addEventListener('click', () => {
   tabsLink2.classList.remove('tab-active');
   tabsLink3.classList.remove('tab-active');
   filterProducts('coffee');
+  tabsReload.style.display = initialQuantityProducts > 4 ? 'flex' : 'none';
 });
 
 tabsLink2.addEventListener('click', () => {
@@ -104,6 +109,7 @@ tabsLink2.addEventListener('click', () => {
   tabsLink2.classList.add('tab-active');
   tabsLink3.classList.remove('tab-active');
   filterProducts('tea');
+  tabsReload.style.display = initialQuantityProducts > 4 ? 'flex' : 'none';
 });
 
 tabsLink3.addEventListener('click', () => {
@@ -111,6 +117,7 @@ tabsLink3.addEventListener('click', () => {
   tabsLink2.classList.remove('tab-active');
   tabsLink3.classList.add('tab-active');
   filterProducts('dessert');
+  tabsReload.style.display = initialQuantityProducts > 4 ? 'flex' : 'none';
 });
 
 filterProducts('coffee');
