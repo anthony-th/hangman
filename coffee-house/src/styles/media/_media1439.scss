@@ -38,14 +38,4 @@
       min-height: 186px;
     }
   }
-  .menu-section {
-    .menu-list {
-      .card {
-        &:nth-child(7),
-        &:nth-child(8) {
-          display: none;
-        }
-      }
-    }
-  }
 }

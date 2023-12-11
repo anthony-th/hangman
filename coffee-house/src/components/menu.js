@@ -54,8 +54,10 @@ const manuList = document.createElement('div');
 manuList.classList.add('menu-list');
 
 let initialQuantityProducts;
+const cardVisible = [];
 
 function filterProducts(category) { 
+  cardVisible.length = 0;
   manuList.innerHTML = '';
   const filterProduct = dataProductsJson.filter((el) => el.category === category);
   initialQuantityProducts = filterProduct.length;
@@ -84,8 +86,9 @@ function filterProducts(category) {
     listImgWrapper.append(listItemImg);
     menuListItem.append(listImgWrapper, listTextWrapper);
     manuList.append(menuListItem);
+
+    cardVisible.push(menuListItem);
   });
-  return initialQuantityProducts;
 }
 
 const tabsReload = document.createElement('div');
@@ -96,31 +99,75 @@ svgReload.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height
 <path d="M17 8H21.4C21.7314 8 22 7.73137 22 7.4V3" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
-tabsLink1.addEventListener('click', () => {
+function tabslinkOne() {
   tabsLink1.classList.add('tab-active');
   tabsLink2.classList.remove('tab-active');
   tabsLink3.classList.remove('tab-active');
   filterProducts('coffee');
-  tabsReload.style.display = initialQuantityProducts > 4 ? 'flex' : 'none';
-});
+  checkInnerWidthForTabReload();
+  showCards();
+}
 
-tabsLink2.addEventListener('click', () => {
+function tabslinkTwo() {
   tabsLink1.classList.remove('tab-active');
   tabsLink2.classList.add('tab-active');
   tabsLink3.classList.remove('tab-active');
   filterProducts('tea');
-  tabsReload.style.display = initialQuantityProducts > 4 ? 'flex' : 'none';
-});
+  checkInnerWidthForTabReload();
+  showCards();
+}
 
-tabsLink3.addEventListener('click', () => {
+function tabslinkThree() {
   tabsLink1.classList.remove('tab-active');
   tabsLink2.classList.remove('tab-active');
   tabsLink3.classList.add('tab-active');
   filterProducts('dessert');
-  tabsReload.style.display = initialQuantityProducts > 4 ? 'flex' : 'none';
+  checkInnerWidthForTabReload();
+  showCards();
+}
+
+tabsLink1.onclick = tabslinkOne;
+tabsLink2.onclick = tabslinkTwo;
+tabsLink3.onclick = tabslinkThree;
+tabsReload.onclick = tabsReloadRotate;
+
+function tabsReloadRotate() {
+  svgReload.classList.add('rotate360');
+}
+
+tabsReload.addEventListener('animationend', function() {
+  svgReload.classList.remove('rotate360');
+    if (visibleCardsCount < initialQuantityProducts) {
+    cardVisible.forEach((card) => {
+      card.style.display = 'flex';
+      tabsReload.style.display = 'none';
+    });
+  }
 });
 
+let visibleCardsCount = window.innerWidth <= 768 ? 4 : 8;
+
+function showCards() {
+  cardVisible.forEach((card, index) => {
+    card.style.display = index < visibleCardsCount ? 'flex' : 'none';
+  });
+}
+
+function checkInnerWidthForTabReload() {
+  const isSmallScreen = window.innerWidth <= 768;
+  visibleCardsCount = isSmallScreen ? 4 : 8;
+  tabsReload.style.display = isSmallScreen && initialQuantityProducts > 4 ? 'flex' : 'none';
+  showCards();
+}
+
+function resizeWin() {
+  checkInnerWidthForTabReload();
+}
+
 filterProducts('coffee');
+checkInnerWidthForTabReload();
+
+window.onresize = resizeWin;
 
 tabsReload.append(svgReload);
 tabsLink1Iconblock.append(tabsLink1Icon);
