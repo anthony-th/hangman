@@ -24,6 +24,7 @@ const totalSliders = sliderJson.length;
 const allSliders = [];
 let startSlider = 0;
 let autoScrollInterval;
+let pause = false;
 
 sliderJson.forEach((item) => {
   const favoriteSlider = document.createElement('div');
@@ -67,16 +68,45 @@ arrowRightIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" h
 const sliderProgressBar = document.createElement('div');
 sliderProgressBar.classList.add('slider-progressbar');
 const sliderProgressBarLine1 = document.createElement('span');
-sliderProgressBarLine1.classList.add('progressbar-line');
+sliderProgressBarLine1.classList.add('progressbar-line', 'active-progress-line');
 const sliderProgressBarLine2 = document.createElement('span');
 sliderProgressBarLine2.classList.add('progressbar-line');
 const sliderProgressBarLine3 = document.createElement('span');
 sliderProgressBarLine3.classList.add('progressbar-line');
 
+const progressLines = [sliderProgressBarLine1, sliderProgressBarLine2, sliderProgressBarLine3];
+
 function autoScrollX() {
   autoScrollInterval = setInterval(() => {
     nextSlide();
   }, 6900);
+}
+
+favoriteSliders.onmouseover = slidersMouseOver;
+favoriteSliders.onmouseout = slidersMouseOut;
+
+function slidersMouseOver() {
+  clearInterval(autoScrollInterval);
+  pause = true;
+  progressLines.forEach((line) => {
+    line.classList.add('pause');
+  });
+}
+
+function slidersMouseOut() {
+  if (pause) {
+    autoScrollX();
+    pause = false;
+    progressLines.forEach((line) => {
+      line.classList.remove('pause');
+    });
+  }
+}
+
+function updateLinesStatus() {
+  progressLines.forEach((line, index) => {
+    line.classList.toggle('active-progress-line', index === startSlider);
+  });
 }
 
 function currentSlide(index) {
@@ -89,11 +119,13 @@ function currentSlide(index) {
 function nextSlide() {
   startSlider = (startSlider + 1) % totalSliders;
   currentSlide(startSlider);
+  updateLinesStatus();
 }
 
 function prevSlide() {
   startSlider = (startSlider - 1 + totalSliders) % totalSliders;
   currentSlide(startSlider);
+  updateLinesStatus();
 }
 
 autoScrollX();
