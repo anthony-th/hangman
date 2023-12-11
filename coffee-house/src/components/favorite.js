@@ -1,3 +1,5 @@
+import sliderJson from '../data/slider.json';
+
 export const favoriteSection = document.createElement('section');
 favoriteSection.classList.add('section', 'favorite-section');
 favoriteSection.id = 'favorite';
@@ -15,24 +17,44 @@ arrowLeftIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" he
 <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
-const favoriteSlider = document.createElement('div');
-favoriteSlider.classList.add('slider');
-const sliderImg = document.createElement('img');
-sliderImg.classList.add('slider-img');
-sliderImg.src = './assets/img/slider/coffee-slider-1.webp';
-sliderImg.alt = '';
+const favoriteSliders = document.createElement('div');
+favoriteSliders.classList.add('sliders');
 
-const favoriteTextBlock = document.createElement('div');
-favoriteTextBlock.classList.add('slider-textblock');
-const favoriteSliderTitle = document.createElement('h2');
-favoriteSliderTitle.classList.add('slider-title');
-favoriteSliderTitle.textContent = 'S’mores Frappuccino';
-const favoriteSliderText = document.createElement('p');
-favoriteSliderText.classList.add('slider-text');
-favoriteSliderText.textContent = 'This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.';
-const favoriteSliderPrice = document.createElement('p');
-favoriteSliderPrice.classList.add('slider-text');
-favoriteSliderPrice.textContent = '$5.50';
+const totalSliders = sliderJson.length;
+const allSliders = [];
+let startSlider = 0;
+let autoScrollInterval;
+
+sliderJson.forEach((item) => {
+  const favoriteSlider = document.createElement('div');
+  favoriteSlider.classList.add('slider');
+  
+  const sliderImg = document.createElement('img');
+  sliderImg.classList.add('slider-img', 'user-select-none');
+  sliderImg.src = item.img;
+  sliderImg.alt = '';
+
+  const favoriteTextBlock = document.createElement('div');
+  favoriteTextBlock.classList.add('slider-textblock');
+  
+  const favoriteSliderTitle = document.createElement('h2');
+  favoriteSliderTitle.classList.add('slider-title');
+  favoriteSliderTitle.textContent = item.title;
+
+  const favoriteSliderText = document.createElement('p');
+  favoriteSliderText.classList.add('slider-text');
+  favoriteSliderText.textContent = item.description;
+
+  const favoriteSliderPrice = document.createElement('p');
+  favoriteSliderPrice.classList.add('slider-text');
+  favoriteSliderPrice.textContent = `$${item.price}`;
+
+  favoriteTextBlock.append(favoriteSliderTitle, favoriteSliderText, favoriteSliderPrice);
+  favoriteSlider.append(sliderImg, favoriteTextBlock);
+  favoriteSliders.append(favoriteSlider);
+
+  allSliders.push(favoriteSlider);
+});
 
 const favoriteArrowRight = document.createElement('a');
 favoriteArrowRight.classList.add('arrow', 'cursor-pointer');
@@ -51,10 +73,36 @@ sliderProgressBarLine2.classList.add('progressbar-line');
 const sliderProgressBarLine3 = document.createElement('span');
 sliderProgressBarLine3.classList.add('progressbar-line');
 
+function autoScrollX() {
+  autoScrollInterval = setInterval(() => {
+    nextSlide();
+  }, 6900);
+}
+
+function currentSlide(index) {
+  const translateX = `translateX(${-100 * index}%)`;
+  allSliders.forEach((slider) => {
+    slider.style.transform = translateX;
+  });
+}
+
+function nextSlide() {
+  startSlider = (startSlider + 1) % totalSliders;
+  currentSlide(startSlider);
+}
+
+function prevSlide() {
+  startSlider = (startSlider - 1 + totalSliders) % totalSliders;
+  currentSlide(startSlider);
+}
+
+autoScrollX();
+
+favoriteArrowLeft.onclick = prevSlide;
+favoriteArrowRight.onclick = nextSlide;
+
 favoriteArrowLeft.append(arrowLeftIcon);
 favoriteArrowRight.append(arrowRightIcon);
 sliderProgressBar.append(sliderProgressBarLine1, sliderProgressBarLine2, sliderProgressBarLine3);
-favoriteTextBlock.append(favoriteSliderTitle, favoriteSliderText, favoriteSliderPrice);
-favoriteSlider.append(sliderImg, favoriteTextBlock);
-favoriteSliderWrapper.append(favoriteArrowLeft, favoriteSlider,favoriteArrowRight);
+favoriteSliderWrapper.append(favoriteArrowLeft, favoriteSliders, favoriteArrowRight);
 favoriteSection.append(favoriteTitle, favoriteSliderWrapper, sliderProgressBar);
