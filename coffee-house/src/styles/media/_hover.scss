@@ -91,18 +91,20 @@
     .menu-tabs {
       .tabs-list {
         .tabs-link {  
-          &:nth-child(2),
-          &:nth-child(3) {
-            &:hover {
-              background: $gray;
-              cursor: pointer;
-              .link-block {
-                background: $text-light;
-              }
-              .link-text {
-                color: $text-light;
-              }
+          &:hover {
+            background: $gray;
+            cursor: pointer;
+            .link-block {
+              background: $text-light;
             }
+            .link-text {
+              color: $text-light;
+            }
+          }
+        }
+        .tab-active {
+          &:hover {
+            cursor: default;
           }
         }
       }

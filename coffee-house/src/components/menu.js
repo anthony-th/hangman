@@ -14,7 +14,7 @@ const tabsList = document.createElement('div');
 tabsList.classList.add('tabs-list');
 
 const tabsLink1 = document.createElement('a');
-tabsLink1.classList.add('tabs-link');
+tabsLink1.classList.add('tabs-link', 'tab-active');
 const tabsLink1Iconblock = document.createElement('div');
 tabsLink1Iconblock.classList.add('link-block');
 const tabsLink1Icon = document.createElement('img');
@@ -87,6 +87,24 @@ svgReload.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height
 <path d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M17 8H21.4C21.7314 8 22 7.73137 22 7.4V3" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
+
+tabsLink1.addEventListener('click', () => {
+  tabsLink1.classList.add('tab-active');
+  tabsLink2.classList.remove('tab-active');
+  tabsLink3.classList.remove('tab-active');
+});
+
+tabsLink2.addEventListener('click', () => {
+  tabsLink1.classList.remove('tab-active');
+  tabsLink2.classList.add('tab-active');
+  tabsLink3.classList.remove('tab-active');
+});
+
+tabsLink3.addEventListener('click', () => {
+  tabsLink1.classList.remove('tab-active');
+  tabsLink2.classList.remove('tab-active');
+  tabsLink3.classList.add('tab-active');
+});
 
 tabsReload.append(svgReload);
 tabsLink1Iconblock.append(tabsLink1Icon);

@@ -31,3 +31,14 @@
     transition: all 0.3s ease-in-out;
   }
 }
+
+.tab-active {
+  background: $gray;
+  border: none;
+  .link-block {
+    background: $text-light;
+  }
+  .link-text {
+    color: $text-light;
+  }
+}
