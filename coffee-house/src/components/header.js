@@ -92,7 +92,7 @@ function toggleMenu() {
   }
 }
 
-function checkWidth() {
+export function checkWidth() {
   menu.className = 'menu'
   navList.className = 'list';
   document.body.className = '';

@@ -1,4 +1,5 @@
 import dataProductsJson from '../data/products.json';
+import { checkWidth, menu } from './header';
 
 export const menuSection = document.createElement('section');
 menuSection.classList.add('section', 'menu-section');
@@ -161,7 +162,9 @@ function checkInnerWidthForTabReload() {
 }
 
 function resizeWin() {
+  checkWidth();
   checkInnerWidthForTabReload();
+  menu.className = 'menu link-active';
 }
 
 filterProducts('coffee');
