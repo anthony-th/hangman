@@ -29,8 +29,8 @@ logoImage.innerHTML = `<svg width="100" height="60" viewBox="0 0 100 60" fill="n
 </svg>`;
 const nav = document.createElement('nav');
 nav.classList.add('nav');
-const list = document.createElement('ul');
-list.classList.add('list');
+const navList = document.createElement('ul');
+navList.classList.add('list');
 const listItem1 = document.createElement('li');
 listItem1.classList.add('list-item');
 export const itemLink1 = document.createElement('a');
@@ -61,10 +61,12 @@ const burgerLine1 = document.createElement('hr');
 burgerLine1.classList.add('burger-line');
 const burgerLine2 = document.createElement('hr');
 burgerLine2.classList.add('burger-line');
-export const menu = document.createElement('a');
+export const menu = document.createElement('div');
 menu.classList.add('menu');
-menu.href = './menu.html';
-const menuText = document.createTextNode('Menu');
+const menuLink = document.createElement('a');
+menuLink.classList.add('menu-link');
+menuLink.href = './menu.html';
+menuLink.textContent = 'Menu'
 const menuImg = document.createElement('svg');
 menuImg.classList.add('menu__image');
 menuImg.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,15 +76,40 @@ menuImg.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
 <path d="M13.333 9.16675H15.4163C16.5669 9.16675 17.4997 10.0995 17.4997 11.2501C17.4997 12.4007 16.5669 13.3334 15.4163 13.3334H14.1663" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
+listItem1.onclick = toggleMenu;
+listItem2.onclick = toggleMenu;
+listItem3.onclick = toggleMenu;
+listItem4.onclick = toggleMenu;
+burgerMenu.onclick = toggleMenu;
+
+function toggleMenu() {
+  if (window.innerWidth <= 768) {
+    navList.classList.toggle('toggle-menu');
+    menu.classList.toggle('toggle-menu');
+    document.body.classList.toggle('overflow-hidden');
+    burgerLine1.classList.toggle('rotate-plus');
+    burgerLine2.classList.toggle('rotate-minus');
+  }
+}
+
+function checkWidth() {
+  menu.className = 'menu'
+  navList.className = 'list';
+  document.body.className = '';
+  burgerLine1.className = 'burger-line';
+  burgerLine2.className = 'burger-line';
+}
+
+window.onresize = checkWidth;
 
 logo.append(logoImage);
 burgerMenu.append(burgerLine1, burgerLine2);
-nav.append(list, burgerMenu);
+nav.append(navList, burgerMenu);
 listItem1.append(itemLink1);
 listItem2.append(itemLink2);
 listItem3.append(itemLink3);
 listItem4.append(itemLink4);
-list.append(listItem1, listItem2, listItem3, listItem4);
-menu.append(menuText);
+navList.append(listItem1, listItem2, listItem3, listItem4);
+menu.append(menuLink);
 menu.append(menuImg);
 header.append(logo, nav, menu);
