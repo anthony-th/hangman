@@ -53,35 +53,39 @@ tabsLink3Text.textContent = 'Dessert';
 const manuList = document.createElement('div');
 manuList.classList.add('menu-list');
 
-dataProductsJson.forEach((item) => {
-  const menuListItem = document.createElement('div');
-  menuListItem.classList.add('card', 'cursor-pointer');
-  const listImgWrapper = document.createElement('div');
-  listImgWrapper.classList.add('item-wrapper');
-  const listItemImg = document.createElement('img');
-  listItemImg.classList.add('item-img');
-  listItemImg.alt = '';
-  listItemImg.src = item.img;
-  const listTextWrapper = document.createElement('div');
-  listTextWrapper.classList.add('text-wrapper');
-  const listItemTitle = document.createElement('h3');
-  listItemTitle.classList.add('item-title');
-  listItemTitle.textContent = item.name;
-  const listItemText = document.createElement('p');
-  listItemText.classList.add('item-text');
-  listItemText.textContent = item.description;
-  const listItemPrice = document.createElement('h4');
-  listItemPrice.classList.add('item-price');
-  listItemPrice.textContent = `$${item.price}`;
-
-  listTextWrapper.append(listItemTitle, listItemText, listItemPrice);
-  listImgWrapper.append(listItemImg);
-  menuListItem.append(listImgWrapper, listTextWrapper);
-  manuList.append(menuListItem);
-});
+function filterProducts(category) { 
+  manuList.innerHTML = '';
+  const filterProduct = dataProductsJson.filter((el) => el.category === category);
+  filterProduct.forEach((item) => {
+    const menuListItem = document.createElement('div');
+    menuListItem.classList.add('card', 'cursor-pointer');
+    const listImgWrapper = document.createElement('div');
+    listImgWrapper.classList.add('item-wrapper');
+    const listItemImg = document.createElement('img');
+    listItemImg.classList.add('item-img');
+    listItemImg.alt = '';
+    listItemImg.src = item.img;
+    const listTextWrapper = document.createElement('div');
+    listTextWrapper.classList.add('text-wrapper');
+    const listItemTitle = document.createElement('h3');
+    listItemTitle.classList.add('item-title');
+    listItemTitle.textContent = item.name;
+    const listItemText = document.createElement('p');
+    listItemText.classList.add('item-text');
+    listItemText.textContent = item.description;
+    const listItemPrice = document.createElement('h4');
+    listItemPrice.classList.add('item-price');
+    listItemPrice.textContent = `$${item.price}`;
+  
+    listTextWrapper.append(listItemTitle, listItemText, listItemPrice);
+    listImgWrapper.append(listItemImg);
+    menuListItem.append(listImgWrapper, listTextWrapper);
+    manuList.append(menuListItem);
+  });
+}
 
 const tabsReload = document.createElement('div');
-tabsReload.classList.add('tabs-reload');
+tabsReload.classList.add('tabs-reload', 'cursor-pointer');
 const svgReload =  document.createElement('svg');
 svgReload.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 <path d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
@@ -92,19 +96,24 @@ tabsLink1.addEventListener('click', () => {
   tabsLink1.classList.add('tab-active');
   tabsLink2.classList.remove('tab-active');
   tabsLink3.classList.remove('tab-active');
+  filterProducts('coffee');
 });
 
 tabsLink2.addEventListener('click', () => {
   tabsLink1.classList.remove('tab-active');
   tabsLink2.classList.add('tab-active');
   tabsLink3.classList.remove('tab-active');
+  filterProducts('tea');
 });
 
 tabsLink3.addEventListener('click', () => {
   tabsLink1.classList.remove('tab-active');
   tabsLink2.classList.remove('tab-active');
   tabsLink3.classList.add('tab-active');
+  filterProducts('dessert');
 });
+
+filterProducts('coffee');
 
 tabsReload.append(svgReload);
 tabsLink1Iconblock.append(tabsLink1Icon);

@@ -120,6 +120,16 @@
         }
       }
     }
+    .tabs-reload {
+      &:hover {
+        background: $gray;
+        svg {
+          path {
+            stroke: $text-light;
+          }
+        }
+      }
+    }
   }
   .mobile-section {
     .mobile-block {
