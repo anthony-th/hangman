@@ -118,13 +118,6 @@ function slidersMouseOut() {
   }
 }
 
-function swipe() {
-  const direction = touchFingerEnd - touchFingerStart;
-  direction > 50 ? prevSlide() : direction < -50 ? nextSlide() : null;
-  touchFingerStart = 0;
-  touchFingerEnd = 0;
-}
-
 function updateLinesStatus() {
   progressLines.forEach((line, index) => {
     line.classList.toggle('active-progress-line', index === startSlider);
@@ -138,19 +131,39 @@ function currentSlide(index) {
   });
 }
 
-favoriteSliders.ontouchstart = (e) => {
+favoriteSliders.addEventListener('touchstart', (e) => {
   touchFingerStart = e.touches[0].clientX;
   slidersMouseOver();
-}
+});
 
-favoriteSliders.ontouchmove = (e) => {
+favoriteSliders.addEventListener('touchmove', (e) => {
   touchFingerEnd = e.touches[0].clientX;
-}
+  slidersMouseOut();
+});
 
-favoriteSliders.ontouchend = (e) => {
+favoriteSliders.addEventListener('touchend', () => {
   slidersMouseOut();
   swipe();
-};
+});
+
+function swipe() {
+  if (touchFingerStart && touchFingerEnd) {
+    const direction = touchFingerStart - touchFingerEnd;
+    if (Math.abs(direction) >= 100) {
+      if (direction > 0) {
+        prevSlide();
+      } else if (direction < 0) {
+        nextSlide();
+      }
+    }
+  }
+  touchFingerStart = 0;
+  touchFingerEnd = 0;
+}
+
+favoriteSliders.addEventListener('touchcancel', () => {
+  slidersMouseOut();
+});
 
 function nextSlide() {
   clearInterval(autoScrollInterval);
