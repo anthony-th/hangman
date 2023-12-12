@@ -75,11 +75,12 @@ const sliderProgressBarLine3 = document.createElement('span');
 sliderProgressBarLine3.classList.add('progressbar-line');
 
 const progressLines = [sliderProgressBarLine1, sliderProgressBarLine2, sliderProgressBarLine3];
+let intervalTime = 6900;
 
 function autoScrollX() {
   autoScrollInterval = setInterval(() => {
     nextSlide();
-  }, 6900);
+  }, intervalTime);
 }
 
 favoriteSliders.onmouseover = slidersMouseOver;
@@ -117,12 +118,18 @@ function currentSlide(index) {
 }
 
 function nextSlide() {
+  clearInterval(autoScrollInterval);
+  intervalTime = 6900;
+  autoScrollX();
   startSlider = (startSlider + 1) % totalSliders;
   currentSlide(startSlider);
   updateLinesStatus();
 }
 
 function prevSlide() {
+  clearInterval(autoScrollInterval);
+  intervalTime = 6900;
+  autoScrollX();
   startSlider = (startSlider - 1 + totalSliders) % totalSliders;
   currentSlide(startSlider);
   updateLinesStatus();
