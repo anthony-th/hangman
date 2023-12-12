@@ -140,6 +140,7 @@ function currentSlide(index) {
 
 favoriteSliders.ontouchstart = (e) => {
   touchFingerStart = e.touches[0].clientX;
+  slidersMouseOver();
 }
 
 favoriteSliders.ontouchmove = (e) => {
@@ -147,6 +148,7 @@ favoriteSliders.ontouchmove = (e) => {
 }
 
 favoriteSliders.ontouchend = (e) => {
+  slidersMouseOut();
   swipe();
 };
 

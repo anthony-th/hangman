@@ -355,25 +355,16 @@ function openModal(item) {
   additivesButton3.onclick = additivesButton3Click;
 
   function additivesButton1Click() {
-    additivesButton1.classList.add('additives-button-active');
-    additivesButton2.classList.remove('additives-button-active');
-    additivesButton3.classList.remove('additives-button-active');
-    selectAddPrice = item.additives[0].addprice;
-    updateTotalPrice();
+    additivesButton1.classList.toggle('additives-button-active');
+    updateSelectAdd();
   }
   function additivesButton2Click() {
-    additivesButton2.classList.add('additives-button-active');
-    additivesButton1.classList.remove('additives-button-active');
-    additivesButton3.classList.remove('additives-button-active');
-    selectAddPrice = item.additives[1].addprice;
-    updateTotalPrice();
+    additivesButton2.classList.toggle('additives-button-active');
+    updateSelectAdd();
   }
   function additivesButton3Click() {
-    additivesButton3.classList.add('additives-button-active');
-    additivesButton1.classList.remove('additives-button-active');
-    additivesButton2.classList.remove('additives-button-active');
-    selectAddPrice = item.additives[2].addprice;
-    updateTotalPrice();
+    additivesButton3.classList.toggle('additives-button-active');
+    updateSelectAdd();
   }
 
   additivesButtons.append(additivesButton1, additivesButton2, additivesButton3);
@@ -393,6 +384,20 @@ function openModal(item) {
 
   alertBlock.append(alertSvg, alertTitle);
 
+  let selectAddArray = [];
+
+  function updateSelectAdd() {
+    selectAddArray = [];
+    const additivesButtonsArr = [additivesButton1, additivesButton2, additivesButton3];
+
+    additivesButtonsArr.forEach((el, index) => {
+      if (el.classList.contains('additives-button-active')) {
+        selectAddArray.push(item.additives[index]);
+      }
+    });
+    updateTotalPrice();
+  }
+
   totalPrice.textContent = `$${(Number(item.price) + Number(selectSize) + Number(selectAddPrice)).toFixed(2)}`;
 
   function calculateTotalPrice(item, selectSize, selectAddPrice) {
@@ -400,7 +405,11 @@ function openModal(item) {
   }
 
   function updateTotalPrice() {
-    totalPrice.textContent = `$${calculateTotalPrice(item, selectSize, selectAddPrice)}`;
+    let totalAddPrice = 0;
+    selectAddArray.forEach((el) => {
+      totalAddPrice += Number(el.addprice);
+    });
+    totalPrice.textContent = `$${calculateTotalPrice(item, selectSize, totalAddPrice)}`;
   }
 
   window.onresize = function() {
