@@ -54,6 +54,14 @@ sliderJson.forEach((item) => {
   favoriteSlider.append(sliderImg, favoriteTextBlock);
   favoriteSliders.append(favoriteSlider);
 
+  favoriteSlider.onmouseenter = () => {
+    slidersMouseOver();
+  }
+  
+  favoriteSlider.onmouseleave = () => {
+    slidersMouseOut();
+  }
+
   allSliders.push(favoriteSlider);
 });
 
@@ -75,16 +83,17 @@ const sliderProgressBarLine3 = document.createElement('span');
 sliderProgressBarLine3.classList.add('progressbar-line');
 
 const progressLines = [sliderProgressBarLine1, sliderProgressBarLine2, sliderProgressBarLine3];
-let intervalTime = 6900;
+let intervalTime = 6900 / 1000;
+let mouseOverTime = 0;
+let pauseInterval = 0;
+let pauseStopInterval;
 
 function autoScrollX() {
   autoScrollInterval = setInterval(() => {
     nextSlide();
   }, intervalTime);
+  pauseInterval = new Date().getTime();
 }
-
-favoriteSliders.onmouseover = slidersMouseOver;
-favoriteSliders.onmouseout = slidersMouseOut;
 
 function slidersMouseOver() {
   clearInterval(autoScrollInterval);
@@ -92,10 +101,13 @@ function slidersMouseOver() {
   progressLines.forEach((line) => {
     line.classList.add('pause');
   });
+  mouseOverTime = new Date().getTime();
+  pauseStopInterval = mouseOverTime - pauseInterval;
+  intervalTime -= pauseStopInterval;
 }
 
 function slidersMouseOut() {
-  if (pause) {
+  if (pause === true) {
     autoScrollX();
     pause = false;
     progressLines.forEach((line) => {
