@@ -40,7 +40,7 @@ sliderJson.forEach((item) => {
   
   const favoriteSliderTitle = document.createElement('h2');
   favoriteSliderTitle.classList.add('slider-title');
-  favoriteSliderTitle.textContent = item.title;
+  favoriteSliderTitle.textContent = item.name;
 
   const favoriteSliderText = document.createElement('p');
   favoriteSliderText.classList.add('slider-text');
@@ -183,7 +183,9 @@ function prevSlide() {
   updateLinesStatus();
 }
 
-autoScrollX();
+window.onload = () => {
+  autoScrollX();
+};
 
 favoriteArrowLeft.onclick = prevSlide;
 favoriteArrowRight.onclick = nextSlide;

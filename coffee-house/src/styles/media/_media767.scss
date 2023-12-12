@@ -92,11 +92,13 @@
       .arrow {
         display: none;
       }
-      .slider {
-        min-width: auto;
-        .slider-img {
-          max-width: 348px;
-          max-height: 348px;
+      .sliders {
+        .slider {
+          min-width: auto;
+          .slider-img {
+            width: 348px;
+            height: 348px;
+          }
         }
       }
     }
