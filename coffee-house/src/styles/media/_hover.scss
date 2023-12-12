@@ -46,6 +46,12 @@
           }
         }
       }
+      .button-close {
+        &:hover {
+          background: $gray;
+          color: $text-light;
+        }
+      }
     }
   }
   .header {
