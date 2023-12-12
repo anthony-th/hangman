@@ -1,4 +1,13 @@
 @media (hover: hover) and (pointer: fine) {
+  .modal {
+    .modal-image-block {
+      &:hover {
+        .modal-image {
+          scale: 1;
+        }
+      }
+    }
+  }
   .header {
     .nav {
       .burger {
