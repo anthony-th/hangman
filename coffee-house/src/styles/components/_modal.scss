@@ -31,7 +31,7 @@
     border-radius: 40px;
     overflow: hidden;
     .modal-image {
-      scale: 1.09;
+      scale: 1;
       width: 340px;
       height: 340px;
       min-height: 340px;
@@ -41,7 +41,7 @@
   .modal-text-block {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 19px;
     max-width: 438px;
     .title-block {
       display: flex;
@@ -84,10 +84,11 @@
           gap: 8px;
           align-items: center;
           justify-content: center;
-          padding: 8px 16px;
+          padding: 8px 14px 8px 8px;
           background: transparent;
           border: 1px solid $accent-light;
           border-radius: 100px;
+          cursor: default;
           .size-circle {
             width: 30px;
             height: 30px;
@@ -111,6 +112,15 @@
             line-height: 150%;
             color: $dark;
           }
+          &.size-button-active {
+            background: $gray;
+            .size-circle {
+              background: $text-light;
+            }
+            .size-ml {
+              color: $text-light;
+            }
+          }
         }
       }
 
@@ -119,6 +129,14 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      .additives-title {
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        color: $dark;
+      }
       .additives-buttons {
         display: flex;
         gap: 8px;
@@ -127,7 +145,7 @@
           gap: 8px;
           align-items: center;
           justify-content: center;
-          padding: 8px 16px;
+          padding: 8px 14px 8px 8px;
           background: transparent;
           border: 1px solid $accent-light;
           border-radius: 100px;
@@ -153,6 +171,15 @@
             font-weight: 600;
             line-height: 150%;
             color: $dark;
+          }
+          &.additives-button-active {
+            background: $gray;
+            .additives-circle {
+              background: $text-light;
+            }
+            .additives-elements {
+              color: $text-light;
+            }
           }
         }
       }

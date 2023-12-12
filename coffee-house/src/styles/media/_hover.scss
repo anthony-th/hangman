@@ -3,7 +3,47 @@
     .modal-image-block {
       &:hover {
         .modal-image {
-          scale: 1;
+          scale: 1.2;
+        }
+      }
+    }
+    .modal-text-block {
+      .size-block {
+        .size-buttons {
+          .size-button {
+            &:hover {
+              cursor: pointer;
+              background: $gray;
+              .size-circle {
+                background: $text-light;
+              }
+              .size-ml {
+                color: $text-light;
+              }
+            }
+            &.size-button-active {
+              cursor: default;
+            }
+          }
+        }
+      }
+      .additives {
+        .additives-buttons {
+          .additives-button {
+            &:hover {
+              cursor: pointer;
+              background: $gray;
+              .additives-circle {
+                background: $text-light;
+              }
+              .additives-elements {
+                color: $text-light;
+              }
+            }
+            &.additives-button-active {
+              cursor: default;
+            }
+          }
         }
       }
     }

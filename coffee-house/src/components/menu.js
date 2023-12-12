@@ -177,11 +177,11 @@ checkInnerWidthForTabReload();
 window.onresize = resizeWin;
 
 function openModal(item) {
-  const shadow = document.createElement("div");
-  shadow.classList.add("modal-shadow");
+  const shadow = document.createElement('div');
+  shadow.classList.add('modal-shadow');
 
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
   const blockImage = document.createElement("div");
   blockImage.classList.add("modal-image-block");
   const modalImage = document.createElement("img");
@@ -207,9 +207,9 @@ function openModal(item) {
   sizeButtons.classList.add("size-buttons");
 
   const sizeButton1 = document.createElement("div");
-  sizeButton1.classList.add("size-button");
+  sizeButton1.classList.add("size-button", "size-button-active");
   const sizeCircle1 = document.createElement("div");
-  sizeCircle1.classList.add("size-circle");
+  sizeCircle1.classList.add('size-circle');
   sizeCircle1.textContent = 'S';
   const sizeSml = document.createElement("p");
   sizeSml.classList.add('size-ml');
@@ -278,7 +278,6 @@ function openModal(item) {
   totalText.textContent = 'Total:';
   const totalPrice = document.createElement("p");
   totalPrice.classList.add("total-price");
-  totalPrice.textContent = `$${item.price}`
 
   const alertBlock = document.createElement("div");
   alertBlock.classList.add("alert-block");
@@ -306,10 +305,75 @@ function openModal(item) {
     closeModal();
   };
 
+  shadow.onclick = function() {
+    closeModal();
+  };
+
   function closeModal() {
     modal.remove();
     shadow.remove();
     document.body.classList.remove('overflow-hidden');
+  }
+
+  let selectSize = item.sizes.s.addprice;
+  let selectAddPrice = 0;
+
+  sizeButton1.onclick = sizeButton1Click;
+  sizeButton2.onclick = sizeButton2Click;
+  sizeButton3.onclick = sizeButton3Click;
+  function sizeButton1Click() {
+    if (!sizeButton1.classList.contains('size-button-active')) {
+      sizeButton1.classList.add('size-button-active');
+      sizeButton2.classList.remove('size-button-active');
+      sizeButton3.classList.remove('size-button-active');
+      selectSize = item.sizes.s.addprice;
+      updateTotalPrice();
+    }
+  }
+
+  function sizeButton2Click() {
+    if (!sizeButton2.classList.contains('size-button-active')) {
+      sizeButton2.classList.add('size-button-active');
+      sizeButton1.classList.remove('size-button-active');
+      sizeButton3.classList.remove('size-button-active');
+      selectSize = item.sizes.m.addprice;
+      updateTotalPrice();
+    }
+  }
+  function sizeButton3Click() {
+    if (!sizeButton3.classList.contains('size-button-active')) {
+      sizeButton3.classList.add('size-button-active');
+      sizeButton1.classList.remove('size-button-active');
+      sizeButton2.classList.remove('size-button-active');
+      selectSize = item.sizes.l.addprice;
+      updateTotalPrice();
+    }
+  }
+
+  additivesButton1.onclick = additivesButton1Click;
+  additivesButton2.onclick = additivesButton2Click;
+  additivesButton3.onclick = additivesButton3Click;
+
+  function additivesButton1Click() {
+    additivesButton1.classList.add('additives-button-active');
+    additivesButton2.classList.remove('additives-button-active');
+    additivesButton3.classList.remove('additives-button-active');
+    selectAddPrice = item.additives[0].addprice;
+    updateTotalPrice();
+  }
+  function additivesButton2Click() {
+    additivesButton2.classList.add('additives-button-active');
+    additivesButton1.classList.remove('additives-button-active');
+    additivesButton3.classList.remove('additives-button-active');
+    selectAddPrice = item.additives[1].addprice;
+    updateTotalPrice();
+  }
+  function additivesButton3Click() {
+    additivesButton3.classList.add('additives-button-active');
+    additivesButton1.classList.remove('additives-button-active');
+    additivesButton2.classList.remove('additives-button-active');
+    selectAddPrice = item.additives[2].addprice;
+    updateTotalPrice();
   }
 
   additivesButtons.append(additivesButton1, additivesButton2, additivesButton3);
@@ -329,6 +393,19 @@ function openModal(item) {
 
   alertBlock.append(alertSvg, alertTitle);
 
+  totalPrice.textContent = `$${(Number(item.price) + Number(selectSize) + Number(selectAddPrice)).toFixed(2)}`;
+
+  function calculateTotalPrice(item, selectSize, selectAddPrice) {
+    return (Number(item.price) + Number(selectSize) + Number(selectAddPrice)).toFixed(2);
+  }
+
+  function updateTotalPrice() {
+    totalPrice.textContent = `$${calculateTotalPrice(item, selectSize, selectAddPrice)}`;
+  }
+
+  window.onresize = function() {
+    closeModal();
+  };
 
   blockText.append(titleBlock, sizeBlock, additives, totalBlock, alertBlock, closeButton);
   modal.append(blockImage, blockText);
