@@ -39,15 +39,15 @@ sliderJson.forEach((item) => {
   favoriteTextBlock.classList.add('slider-textblock');
   
   const favoriteSliderTitle = document.createElement('h2');
-  favoriteSliderTitle.classList.add('slider-title');
+  favoriteSliderTitle.classList.add('slider-title', 'user-select-none');
   favoriteSliderTitle.textContent = item.name;
 
   const favoriteSliderText = document.createElement('p');
-  favoriteSliderText.classList.add('slider-text');
+  favoriteSliderText.classList.add('slider-text', 'user-select-none');
   favoriteSliderText.textContent = item.description;
 
   const favoriteSliderPrice = document.createElement('p');
-  favoriteSliderPrice.classList.add('slider-text');
+  favoriteSliderPrice.classList.add('slider-text', 'user-select-none');
   favoriteSliderPrice.textContent = `$${item.price}`;
 
   favoriteTextBlock.append(favoriteSliderTitle, favoriteSliderText, favoriteSliderPrice);
@@ -151,9 +151,9 @@ function swipe() {
     const direction = touchFingerStart - touchFingerEnd;
     if (Math.abs(direction) >= 100) {
       if (direction > 0) {
-        prevSlide();
-      } else if (direction < 0) {
         nextSlide();
+      } else if (direction < 0) {
+        prevSlide();
       }
     }
   }
