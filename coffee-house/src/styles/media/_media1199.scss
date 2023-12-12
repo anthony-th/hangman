@@ -4,4 +4,26 @@
       max-width: 700px;
     }
   }
+  .modal {
+    width: 688px;
+    left: calc(50% - (688px/2));
+    top: calc(50% - (502px/2) + 8px);
+    .modal-text-block {
+      max-width: 326px;
+      gap: 19.5px;
+      .size-block {
+        .size-buttons {
+          flex-wrap: wrap;
+        }
+      }
+      .additives {
+        .additives-buttons {
+          flex-wrap: wrap;
+          .additives-button {
+            max-height: 46px;
+          }
+        }
+      }
+    }
+  }
 }

@@ -54,6 +54,14 @@
 }
 
 @media screen and (max-width: 767px) {
+  .modal {
+    width: 342px;
+    left: calc(50% - (342px/2));
+    top: calc(50% - (702px/2) + 8px);
+    .modal-image-block {
+      display: none;
+    }
+  }
   .title {
     font-size: 32px;
   }
