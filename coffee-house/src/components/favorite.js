@@ -87,6 +87,8 @@ let intervalTime = 6900 / 1000;
 let mouseOverTime = 0;
 let pauseInterval = 0;
 let pauseStopInterval;
+let touchFingerStart = 0;
+let touchFingerEnd = 0;
 
 function autoScrollX() {
   autoScrollInterval = setInterval(() => {
@@ -116,6 +118,13 @@ function slidersMouseOut() {
   }
 }
 
+function swipe() {
+  const direction = touchFingerEnd - touchFingerStart;
+  direction > 50 ? prevSlide() : direction < -50 ? nextSlide() : null;
+  touchFingerStart = 0;
+  touchFingerEnd = 0;
+}
+
 function updateLinesStatus() {
   progressLines.forEach((line, index) => {
     line.classList.toggle('active-progress-line', index === startSlider);
@@ -128,6 +137,18 @@ function currentSlide(index) {
     slider.style.transform = translateX;
   });
 }
+
+favoriteSliders.ontouchstart = (e) => {
+  touchFingerStart = e.touches[0].clientX;
+}
+
+favoriteSliders.ontouchmove = (e) => {
+  touchFingerEnd = e.touches[0].clientX;
+}
+
+favoriteSliders.ontouchend = (e) => {
+  swipe();
+};
 
 function nextSlide() {
   clearInterval(autoScrollInterval);
