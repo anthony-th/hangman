@@ -63,7 +63,7 @@ const burgerLine2 = document.createElement('hr');
 burgerLine2.classList.add('burger-line');
 export const menu = document.createElement('div');
 menu.classList.add('menu');
-const menuLink = document.createElement('a');
+export const menuLink = document.createElement('a');
 menuLink.classList.add('menu-link');
 menuLink.href = './menu.html';
 menuLink.textContent = 'Menu'
@@ -81,6 +81,7 @@ listItem2.onclick = toggleMenu;
 listItem3.onclick = toggleMenu;
 listItem4.onclick = toggleMenu;
 burgerMenu.onclick = toggleMenu;
+menu.onclick = toggleMenu;
 
 function toggleMenu() {
   if (window.innerWidth <= 768) {
