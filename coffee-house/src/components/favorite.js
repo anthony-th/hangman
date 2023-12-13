@@ -132,16 +132,17 @@ function currentSlide(index) {
 }
 
 favoriteSliders.addEventListener('touchstart', (e) => {
+  e.preventDefault();
   touchFingerStart = e.touches[0].clientX;
   slidersMouseOver();
 });
 
 favoriteSliders.addEventListener('touchmove', (e) => {
   touchFingerEnd = e.touches[0].clientX;
-  slidersMouseOut();
 });
 
-favoriteSliders.addEventListener('touchend', () => {
+favoriteSliders.addEventListener('touchend', (e) => {
+  e.preventDefault()
   slidersMouseOut();
   swipe();
 });
