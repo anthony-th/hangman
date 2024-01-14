@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('../assets/img/bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: unset;
+  background-attachment: fixed;
+  .main {
+    display: flex;
+    align-items: center;
+  }
+}
