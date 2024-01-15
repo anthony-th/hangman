@@ -79,7 +79,31 @@ function buttonPress(letter, button) {
     filterItems.forEach(item => {
       item.textContent = letter;
     });
+  } else {
+    currentFails += 1;
+    if (currentFails === maxFails) {
+      console.log("u lost");
+    }
   }
   button.disabled = true;
+  listItems.forEach(item => {
+    if (item.textContent.trim() !== '') {
+      item.style.borderBottom = 'none';
+    }
+  });
+  greenSpan.textContent = currentFails;
+  const notEmpty = listItems.every(item => item.textContent.trim() !== '');
+  if (notEmpty) {
+    console.log("u win!");
+  }
 }
 
+document.onkeydown = (event) => pressDownKeyboard(event);
+
+function pressDownKeyboard(event) {
+  if (event.keyCode >= 65 && event.keyCode <= 90) {
+    const letter = String.fromCharCode(event.keyCode);
+    const button = document.getElementById(`key-id-${event.keyCode - 64}`);
+    buttonPress(letter, button);
+  }
+}
