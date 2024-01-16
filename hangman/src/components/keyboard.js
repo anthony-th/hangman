@@ -8,6 +8,7 @@ const maxFails = 6;
 let currentFails = 0;
 let listItems = [];
 let gameOver = false;
+let wasQuestions = [];
 
 const functionBlock = createElement('div', 'section-logic');
 const maskAnswer = createElement('ul', 'list');
@@ -52,8 +53,15 @@ export function playAgain() {
 }
 
 function getRandomQuestion() {
-  const randomIndex = Math.floor(Math.random() * dataJson.length);
-  const randomWord = dataJson[randomIndex];
+  let unusedQuestion = dataJson.filter(question => !wasQuestions.includes(question.id));
+  if (unusedQuestion.length === 0) {
+    wasQuestions = [];
+    unusedQuestion = dataJson;
+    console.log(`This game has a total of ${dataJson.length} questions. You have answered all ${dataJson.length}   questions. From now on, the questions will start repeating.`);
+  }
+  const randomIndex = Math.floor(Math.random() * unusedQuestion.length);
+  const randomWord = unusedQuestion[randomIndex];
+  wasQuestions.push(randomWord.id);
   question.textContent = randomWord.question;
   maskAnswer.innerHTML = '';
   gameOver = false;
