@@ -5,6 +5,7 @@ import dataJson from '../data/questions.json';
 const maxFails = 6;
 let currentFails = 0;
 let listItems = [];
+let gameOver = false;
 
 const functionBlock = createElement('div', 'section-logic');
 const maskAnswer = createElement('ul', 'list');
@@ -37,6 +38,7 @@ function playAgain() {
   man6.style.visibility = 'hidden';
   currentFails = 0;
   getRandomQuestion();
+  gameOver = false;
 }
 
 function getRandomQuestion() {
@@ -44,6 +46,7 @@ function getRandomQuestion() {
   const randomWord = dataJson[randomIndex];
   question.textContent = randomWord.question;
   maskAnswer.innerHTML = '';
+  gameOver = false;
   listItems = [];
   const letters = randomWord.answer.split('');
   letters.forEach(letter => generateMaskBlock(letter));
@@ -73,6 +76,10 @@ export const createKeyboard = function() {
 getRandomQuestion();
 
 function buttonPress(letter, button) {
+  if (gameOver || button.disabled) {
+    return;
+  }
+
   const filterItems = listItems.filter(item => item.dataset.letter.toLowerCase() === letter.toLowerCase());
 
   if (filterItems.length > 0) {
@@ -81,8 +88,10 @@ function buttonPress(letter, button) {
     });
   } else {
     currentFails += 1;
+    updateVisibility();
     if (currentFails === maxFails) {
       console.log("u lost");
+      gameOver = true;
     }
   }
   button.disabled = true;
@@ -95,6 +104,7 @@ function buttonPress(letter, button) {
   const notEmpty = listItems.every(item => item.textContent.trim() !== '');
   if (notEmpty) {
     console.log("u win!");
+    gameOver = true;
   }
 }
 
@@ -105,5 +115,30 @@ function pressDownKeyboard(event) {
     const letter = String.fromCharCode(event.keyCode);
     const button = document.getElementById(`key-id-${event.keyCode - 64}`);
     buttonPress(letter, button);
+  }
+}
+
+function updateVisibility() {
+  switch (currentFails) {
+    case 1:
+      man1.style.visibility = 'visible';
+      break;
+    case 2:
+      man2.style.visibility = 'visible';
+      break;
+    case 3:
+      man3.style.visibility = 'visible';
+      break;
+    case 4:
+      man4.style.visibility = 'visible';
+      break;
+    case 5:
+      man5.style.visibility = 'visible';
+      break;
+    case 6:
+      man6.style.visibility = 'visible';
+      break;
+    default:
+      break;
   }
 }
