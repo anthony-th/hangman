@@ -5,12 +5,13 @@ import { titleModal, modalAnswer, modal } from "./modal";
 import dataJson from '../data/questions.json';
 
 const maxFails = 6;
-let randomWord;
+let randomWord = null;
 let currentFails = 0;
 let listItems = [];
 let gameOver = false;
 let wasQuestions = [];
 let isReloadPage = true;
+let lastQuestion = null;
 
 const functionBlock = createElement('div', 'section-logic');
 const maskAnswer = createElement('ul', 'list');
@@ -65,6 +66,11 @@ function getRandomQuestion() {
   }
   const randomIndex = Math.floor(Math.random() * unusedQuestion.length);
   randomWord = unusedQuestion[randomIndex];
+  while (lastQuestion && randomWord.id === lastQuestion.id) {
+    const newIndex = Math.floor(Math.random() * unusedQuestion.length);
+    randomWord = unusedQuestion[newIndex];
+  }
+  lastQuestion = randomWord; 
   wasQuestions.push(randomWord.id);
   question.textContent = randomWord.question;
   maskAnswer.innerHTML = '';
