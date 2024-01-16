@@ -4,7 +4,6 @@ const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   mode: "development",
-  devtool: "source-map",
   devServer: {
     watchFiles: path.join(__dirname, "src"),
     port: 3000,

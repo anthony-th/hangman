@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  devtool: "source-map",
   entry: {
     index: path.resolve(__dirname, "src", "index.js"),
   },
