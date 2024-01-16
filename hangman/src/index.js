@@ -5,7 +5,7 @@ import { createKeyboard } from './components/keyboard';
 import { modal } from './components/modal';
 
 const main = createElement('main', 'main');
-const shadow = createElement('div', 'shadow');
+export const shadow = createElement('div', 'shadow');
 const logicBlock = createKeyboard();
 
 main.append(imagesWrapper, logicBlock, modal, shadow);

@@ -1,5 +1,7 @@
 import { createElement } from "./createElement";
 import { man1, man2, man3, man4, man5, man6 } from "./visualization";
+import { shadow } from "..";
+import { titleModal, modalAnswer, modal } from "./modal";
 import dataJson from '../data/questions.json';
 
 const maxFails = 6;
@@ -29,16 +31,24 @@ function generateMaskBlock(letter) {
   listItems.push(item);
 }
 
-function playAgain() {
+export function playAgain() {
   man1.style.visibility = 'hidden';
   man2.style.visibility = 'hidden';
   man3.style.visibility = 'hidden';
   man4.style.visibility = 'hidden';
   man5.style.visibility = 'hidden';
   man6.style.visibility = 'hidden';
+  shadow.style.display = 'none';
+  modal.style.transform = 'translateY(-200%)';
   currentFails = 0;
+  greenSpan.textContent = currentFails;
   getRandomQuestion();
   gameOver = false;
+
+  for (let charCode = 65; charCode <= 90; charCode++) {
+    const button = document.getElementById(`key-id-${charCode - 64}`);
+    button.disabled = false;
+  }
 }
 
 function getRandomQuestion() {
@@ -50,6 +60,7 @@ function getRandomQuestion() {
   listItems = [];
   const letters = randomWord.answer.split('');
   letters.forEach(letter => generateMaskBlock(letter));
+  modalAnswer.textContent = `Corrent answer: ${randomWord.answer}`;
   console.log(`ответ ` + randomWord.answer);
   return randomWord;
 }
@@ -92,6 +103,11 @@ function buttonPress(letter, button) {
     if (currentFails === maxFails) {
       console.log("u lost");
       gameOver = true;
+      titleModal.textContent = 'You lost!';
+      requestAnimationFrame(() => {
+        shadow.style.display = 'block';
+        modal.style.transform = 'translateY(0)';
+      });
     }
   }
   button.disabled = true;
@@ -105,6 +121,11 @@ function buttonPress(letter, button) {
   if (notEmpty) {
     console.log("u win!");
     gameOver = true;
+    titleModal.textContent = 'You win!';
+    requestAnimationFrame(() => {
+      shadow.style.display = 'block';
+      modal.style.transform = 'translateY(0)';
+    });
   }
 }
 

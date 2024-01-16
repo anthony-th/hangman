@@ -11,4 +11,12 @@
       }
     }
   }
+  
+.modal-wrapper {
+  .button-try-again {
+    &:hover {
+      color: #ff810b;
+    }
+  }
+}
 }

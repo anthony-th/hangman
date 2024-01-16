@@ -1,0 +1,27 @@
+@media screen and (max-width: 480px) {
+  .section-gallows {
+    padding: 0 10px;
+  }
+  .img {
+    top: 22%;
+    right: 15%;
+    &:nth-child(3) {
+      top: 38%;
+      right: 22.4%;
+    }
+    &:nth-child(4) {
+      right: 9%;
+    }
+    &:nth-child(5) {
+      right: 22.4%;
+    }
+    &:nth-child(6) {
+      right: 9%;
+      top: 62%;
+    }
+    &:nth-child(7) {
+      right: 22.4%;
+      top: 62%;
+    }
+  }
+}
