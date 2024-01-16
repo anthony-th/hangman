@@ -39,7 +39,7 @@ export function playAgain() {
   man5.style.visibility = 'hidden';
   man6.style.visibility = 'hidden';
   shadow.style.display = 'none';
-  modal.style.transform = 'translateY(-200%)';
+  modal.style.transform = 'translateY(-500%)';
   currentFails = 0;
   greenSpan.textContent = currentFails;
   getRandomQuestion();
@@ -62,6 +62,7 @@ function getRandomQuestion() {
   letters.forEach(letter => generateMaskBlock(letter));
   modalAnswer.textContent = `Corrent answer: ${randomWord.answer}`;
   console.log(`ответ ` + randomWord.answer);
+  console.log('Please switch to English keyboard layout!');
   return randomWord;
 }
 

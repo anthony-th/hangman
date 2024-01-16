@@ -7,10 +7,11 @@
 .main {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
-  gap: 50px;
+  // gap: 50px;
   flex-wrap: wrap;
+  max-width: 1280px;
 }
 
 .section-gallows {
@@ -151,7 +152,7 @@
   z-index: 5;
   background-color: #242424;
   border-radius: 10px;
-  transform: translateY(-200%);
+  transform: translateY(-500%);
   .title-modal {
     color: #ffffff;
     font-size: 3rem;
