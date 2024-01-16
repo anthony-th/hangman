@@ -1,4 +1,7 @@
 @media screen and (max-width: 480px) {
+  .body {
+    gap: 5px;
+  }
   .section-gallows {
     padding: 10px 0 0;
   }
@@ -29,7 +32,7 @@
   .section-logic {
     gap: 5px;
     .title-question {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
     .keyboard-wrapper {
       gap: 7px 3px;

@@ -1,5 +1,14 @@
 @media screen and (max-width: 1020px) {
+  .body {
+    gap: 20px;
+  }
   .main {
     gap: 10px;
+    padding-bottom: 10px;
+  }
+  .header {
+    .title {
+      font-size: 2.2rem;
+    }
   }
 }
