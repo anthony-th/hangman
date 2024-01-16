@@ -61,7 +61,7 @@ function getRandomQuestion() {
   const letters = randomWord.answer.split('');
   letters.forEach(letter => generateMaskBlock(letter));
   modalAnswer.textContent = `Corrent answer: ${randomWord.answer}`;
-  console.log(`ответ ` + randomWord.answer);
+  console.log(`Answer: ` + randomWord.answer);
   console.log('Please switch to English keyboard layout!');
   return randomWord;
 }
