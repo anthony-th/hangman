@@ -1,7 +1,6 @@
 @media screen and (max-width: 480px) {
-  .section-gallows,
-  .section-logic {
-    padding: 0 10px;
+  .section-gallows {
+    padding: 10px 0 0;
   }
   .img {
     top: 22%;
@@ -23,6 +22,15 @@
     &:nth-child(7) {
       right: 22.4%;
       top: 62%;
+    }
+  }
+  .section-logic {
+    gap: 5px;
+    .title-question {
+      font-size: 1.3rem;
+    }
+    .keyboard-wrapper {
+      gap: 7px 3px;
     }
   }
 }
