@@ -2,41 +2,48 @@
   .body {
     gap: 5px;
   }
+  .fails {
+    height: 20px;
+  }
   .section-gallows {
     padding: 10px 0 0;
     width: 265px;
   }
   .img {
-    top: 20%;
-    right: 13%;
+    width: 40px;
+    height: 43px;
+    top: 22%;
+    right: 39.3%;
     &:nth-child(3) {
-      top: 36%;
-      right: 20.4%;
+      height: 64.15px;
+      width: 17.35px;
+      top: 34%;
+      right: 48.4%;
     }
     &:nth-child(4) {
-      top: 39%;
-      right: 7%;
+      top: 30%;
+      right: 38%;  
     }
     &:nth-child(5) {
-      top: 39%;
-      right: 20.4%;
+      top: 40%;
+      right: 51.4%;
     }
     &:nth-child(6) {
-      right: 6.5%;
-      top: 60%;
+      right: 38.8%;
+      top: 52.6%;
     }
     &:nth-child(7) {
-      right: 21.4%;
-      top: 60%;
+      right: 49.4%;
+      top: 52.5%;
     }
   }
   .section-logic {
     gap: 3px;
     .title-question {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     .keyboard-wrapper {
-      gap: 7px 3px;
+      gap: 7px 4px;
     }
   }
 }

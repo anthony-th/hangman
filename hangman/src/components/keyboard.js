@@ -22,8 +22,10 @@ failsTitle.textContent = 'Fails: ';
 const greenSpan = createElement('span', 'green');
 greenSpan.textContent = currentFails;
 const orangeSpan = createElement('span', 'orange');
+const slash = createElement('p', 'slash');
+slash.textContent = '/';
 orangeSpan.textContent = maxFails;
-fails.append(failsTitle, greenSpan, `/`, orangeSpan);
+fails.append(failsTitle, greenSpan, slash, orangeSpan);
 
 function generateMaskBlock(letter) {
   const item = createElement('li', 'list-item');

@@ -1,8 +1,18 @@
 .header {
+  position: relative;
   .title {
     font-size: 2.7rem;
-    background: linear-gradient(#ff810b, #ff810b, #ff810b, #acacac, #464646);
+    background: linear-gradient(#acacac, #acacac, #acacac, #acacac, #464646);
     background-clip: text;
     color: transparent;
+    text-transform: uppercase;
+  }
+  .header-image {
+    position: absolute;
+    top: 29px;
+    right: -29px;
+    width: 80px;
+    animation: wind 2s infinite alternate;
+    transform-origin: top center;
   }
 }

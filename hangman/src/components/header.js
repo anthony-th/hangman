@@ -2,6 +2,8 @@ import { createElement } from "./createElement"
 
 export const header = createElement('header', 'header');
 const title = createElement('h1', 'title');
-title.textContent = 'hangman game';
+title.innerHTML = `hangman`;
+const headerImage = createElement('img', 'header-image');
+headerImage.src = './assets/img/wood.webp';
 
-header.append(title);
+header.append(title, headerImage);

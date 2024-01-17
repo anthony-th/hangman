@@ -2,11 +2,14 @@
   .section-logic {
     .keyboard-wrapper {
       .button {
-        &:hover {
-          background-color: #212121;
-          border: 1px solid rgba($color: #9ceb8c, $alpha: 0.3);
-          box-shadow: 0 4px #9ceb8c;
-          color: #9ceb8c;
+        &:not(:disabled) {
+          &:hover {
+            background-color: #212121;
+            border: 1px solid rgba($color: #9ceb8c, $alpha: 0.3);
+            box-shadow: 0 4px #9ceb8c;
+            color: #9ceb8c;
+            font-size: 1.4rem;
+          }
         }
       }
     }
