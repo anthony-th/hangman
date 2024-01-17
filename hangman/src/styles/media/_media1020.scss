@@ -1,6 +1,6 @@
 @media screen and (max-width: 1020px) {
   .body {
-    gap: 20px;
+    gap: 40px;
   }
   .main {
     gap: 10px;
@@ -12,6 +12,38 @@
     }
     .header-image {
       right: -33px;
+    }
+  }
+  .section-gallows {
+    padding: 10px 0 0;
+    width: 265px;
+  }
+  .img {
+    width: 40px;
+    height: 43px;
+    top: 22%;
+    right: 39.3%;
+    &:nth-child(3) {
+      height: 64.15px;
+      width: 17.35px;
+      top: 34%;
+      right: 48.4%;
+    }
+    &:nth-child(4) {
+      top: 30%;
+      right: 38%;  
+    }
+    &:nth-child(5) {
+      top: 40%;
+      right: 51.4%;
+    }
+    &:nth-child(6) {
+      right: 38.8%;
+      top: 52.6%;
+    }
+    &:nth-child(7) {
+      right: 49.4%;
+      top: 52.5%;
     }
   }
 }
