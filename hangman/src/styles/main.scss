@@ -201,10 +201,22 @@
     text-transform: capitalize;
     cursor: pointer;
     outline: none;
-    background: transparent;
-    color: #ffffff;
     border: 1px solid #ffffff;
     border-radius: 5px;
+    background: linear-gradient(
+      to right,
+      #78418c,
+      #9ceb8c,
+      #7e9799,
+      #ff810b,
+      #c11771,
+      #c93b59,
+    );
+    background-size: 300%;
+    background-position: -100%;
+    background-clip: text;
+    color: transparent;
+    animation: gradientPlayAgain 7s infinite alternate-reverse;
     &:active {
       color: #ff810b;
       border-color: #ff810b;

@@ -19,6 +19,8 @@
   .button-try-again {
     &:hover {
       color: #ff810b;
+      animation: none;
+      border-color: #ff810b;
     }
   }
 }

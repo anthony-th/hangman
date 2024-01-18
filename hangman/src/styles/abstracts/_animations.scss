@@ -15,3 +15,12 @@
     transform: rotateZ(-2deg);
   }
 }
+
+@keyframes gradientPlayAgain {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
