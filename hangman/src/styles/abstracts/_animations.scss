@@ -5,14 +5,32 @@
   100% {
     transform: rotateZ(-5deg);
   }
-
 }
+
 @keyframes windForMan {
   0% {
     transform: rotateZ(-2deg);
   }
   100% {
     transform: rotateZ(1deg);
+  }
+}
+
+@keyframes windForWoMan {
+  0% {
+    transform: rotateZ(-30deg);
+  }
+  100% {
+    transform: rotateZ(20deg);
+  }
+}
+
+@keyframes windForWoManMobile {
+  0% {
+    transform: rotateZ(-24deg);
+  }
+  100% {
+    transform: rotateZ(15deg);
   }
 }
 

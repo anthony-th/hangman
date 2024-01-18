@@ -1,5 +1,5 @@
 import { createElement } from "./createElement";
-import { man1, man2, man3, man4, man5, man6 } from "./visualization";
+import { man1, man2, man3, man4, man5, man6, woman1, woman2, woman3, woman4, woman5, woman6, woman7, imagesWrapper, gallows } from "./visualization";
 import { shadow } from "..";
 import { titleModal, modalAnswer, modal } from "./modal";
 import dataJson from '../data/questions.json';
@@ -41,21 +41,54 @@ function endTranslateY(answer) {
 }
 
 export function playAgain() {
-  man1.style.visibility = 'hidden';
-  man2.style.visibility = 'hidden';
-  man3.style.visibility = 'hidden';
-  man4.style.visibility = 'hidden';
-  man5.style.visibility = 'hidden';
-  man6.style.visibility = 'hidden';
-  shadow.style.display = 'none';
-  modal.style.transform = 'translateY(-100vh)';
-  currentFails = 0;
-  greenSpan.textContent = currentFails;
-  getRandomQuestion();
-  gameOver = false;
-  for (let charCode = 65; charCode <= 90; charCode++) {
-    const button = document.getElementById(`key-id-${charCode - 64}`);
-    button.disabled = false;
+  if (imagesWrapper.contains(gallows)) {
+    man1.style.visibility = 'hidden';
+    man2.style.visibility = 'hidden';
+    man3.style.visibility = 'hidden';
+    man4.style.visibility = 'hidden';
+    man5.style.visibility = 'hidden';
+    man6.style.visibility = 'hidden';
+    woman1.style.visibility = 'hidden';
+    woman2.style.visibility = 'hidden';
+    woman3.style.visibility = 'hidden';
+    woman4.style.visibility = 'hidden';
+    woman5.style.visibility = 'hidden';
+    woman6.style.visibility = 'hidden';
+    woman7.style.visibility = 'hidden';
+    shadow.style.display = 'none';
+    modal.style.transform = 'translateY(-100vh)';
+    currentFails = 0;
+    greenSpan.textContent = currentFails;
+    getRandomQuestion();
+    gameOver = false;
+    for (let charCode = 65; charCode <= 90; charCode++) {
+      const button = document.getElementById(`key-id-${charCode - 64}`);
+      button.disabled = false;
+    }
+  } else {
+    woman1.style.visibility = 'visible';
+    woman2.style.visibility = 'hidden';
+    woman3.style.visibility = 'hidden';
+    woman4.style.visibility = 'hidden';
+    woman5.style.visibility = 'hidden';
+    woman6.style.visibility = 'hidden';
+    woman7.style.visibility = 'hidden';
+    man1.style.visibility = 'hidden';
+    man2.style.visibility = 'hidden';
+    man3.style.visibility = 'hidden';
+    man4.style.visibility = 'hidden';
+    man5.style.visibility = 'hidden';
+    man6.style.visibility = 'hidden';
+    shadow.style.display = 'none';
+    modal.style.transform = 'translateY(-100vh)';
+    currentFails = 0;
+    greenSpan.textContent = currentFails;
+    getRandomQuestion();
+    gameOver = false;
+    for (let charCode = 65; charCode <= 90; charCode++) {
+      const button = document.getElementById(`key-id-${charCode - 64}`);
+      button.disabled = false;
+    }
   }
 }
 
@@ -163,21 +196,27 @@ function updateVisibility() {
   switch (currentFails) {
     case 1:
       man1.style.visibility = 'visible';
+      woman2.style.visibility = 'visible';
       break;
     case 2:
       man2.style.visibility = 'visible';
+      woman3.style.visibility = 'visible';
       break;
     case 3:
       man3.style.visibility = 'visible';
+      woman4.style.visibility = 'visible';
       break;
     case 4:
       man4.style.visibility = 'visible';
+      woman5.style.visibility = 'visible';
       break;
     case 5:
       man5.style.visibility = 'visible';
+      woman6.style.visibility = 'visible';
       break;
     case 6:
       man6.style.visibility = 'visible';
+      woman7.style.visibility = 'visible';
       break;
     default:
       break;

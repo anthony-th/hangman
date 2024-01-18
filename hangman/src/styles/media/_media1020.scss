@@ -13,10 +13,15 @@
     .header-image {
       right: -33px;
     }
+    .subtitle {
+      font-size: 3.2rem;
+      bottom: -31%;
+    }
   }
   .section-gallows {
     padding: 10px 0 0;
     width: 265px;
+    overflow: hidden;
     .gallows {
       width: 265px;
       height: 290.3px;
@@ -60,6 +65,58 @@
           top: 66.5%;
           height: 51px;
           width: 25.14px;
+        }
+      }
+    }
+    .woman-gallows {
+      width: 264.6px;
+      height: 289.82px;
+    }
+    .gallows-woman {
+      top: 6%;
+      right: 0;
+      animation: windForWoManMobile 3.7s infinite alternate;
+      .woman-img {
+        width: 100.81px;
+        height: 272.13px;
+        top: 2%;
+        right: calc(58.5% - 50.405px);
+        // visibility: hidden;
+        &:nth-child(2) {
+          top: 36.1%;
+          width: 50.34px;
+          height: 37.86px;
+          right: 49.9%;
+        }
+        &:nth-child(3) {
+          top: 45.2%;
+          width: 29.65px;
+          height: 24.85px;
+          right: 50.2%;
+        }
+        &:nth-child(4) {
+          top: 36.2%;
+          width: 50.74px;
+          height: 67.74px;
+          right: 50.3%;
+        }
+        &:nth-child(5) {
+          top: 40%;
+          width: 31.99px;
+          height: 30.66px;
+          right: 64.3%;
+        }
+        &:nth-child(6) {
+          top: 55.7%;
+          width: 78.74px;
+          height: 69.15px;
+          right: 32.6%;
+        }
+        &:nth-child(7) {
+          top: 62.6%;
+          width: 35px;
+          height: 33.69px;
+          right: 41.2%;
         }
       }
     }

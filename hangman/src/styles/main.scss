@@ -5,6 +5,7 @@
 @import './abstracts/animations';
 
 @import './sections/header';
+@import './sections/section-gallows';
 @import './sections/footer';
 
 @import './media/hover';
@@ -18,75 +19,6 @@
   flex-wrap: wrap;
   max-width: 1280px;
 }
-
-.section-gallows {
-  width: 360px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  height: max-content;
-  .gallows {
-    width: 360px;
-    height: 394.38px;
-  }
-  .gallows-man {
-    position: absolute;
-    top: 17%;
-    right: 32.5%;
-    width: 103px;
-    height: 209px;
-    animation: windForMan 1.7s infinite alternate;
-    transform-origin: top center;
-    .img {
-      position: absolute;
-      width: 62px;
-      height: 67px;
-      top: 0%;
-      right: calc(50% - 62px/2);
-      z-index: 7;
-      user-select: none;
-      visibility: hidden;
-      &:nth-child(2) {
-        top: 25%;
-        height: 100px;
-        width: 27px;
-        right: 55%;
-        z-index: 6;
-      }
-      &:nth-child(3) {
-        top: 18.4%;
-        height: 59.16px;
-        width: 54px;
-        right: 19%;
-        z-index: 5;
-      }
-      &:nth-child(4) {
-        top: 38%;
-        height: 59.16px;
-        width: 54px;
-        right: 69%;
-        z-index: 5;
-      }
-      &:nth-child(5) {
-        top: 68%;
-        height: 59.16px;
-        width: 57.6px;
-        right: 24.3%;
-        z-index: 6;
-      }
-      &:nth-child(6) {
-        top: 68%;
-        height: 67px;
-        width: 39.6px;
-        right: 60%;
-        z-index: 7;
-      }
-    }
-  }
-}
-
 
 .section-logic {
   display: flex;
