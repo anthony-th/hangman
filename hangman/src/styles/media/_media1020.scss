@@ -21,41 +21,47 @@
       width: 265px;
       height: 290.3px;
     }
-  }
-  .img {
-    width: 40px;
-    height: 43px;
-    top: 22%;
-    right: 39.3%;
-    &:nth-child(3) {
-      height: 64.15px;
-      width: 17.35px;
-      top: 34%;
-      right: 48.4%;
-    }
-    &:nth-child(4) {
-      top: 30%;
-      right: 38%;
-      height: 45px;
-      width: 39.75px;
-    }
-    &:nth-child(5) {
-      height: 45px;
-      width: 39.75px;
-      top: 40%;
-      right: 51.4%;
-    }
-    &:nth-child(6) {
-      height: 45px;
-      width: 42.4px;
-      right: 38.8%;
-      top: 52.6%;
-    }
-    &:nth-child(7) {
-      right: 49.4%;
-      top: 52.5%;
-      height: 51px;
-      width: 29.14px;
+    .gallows-man {
+      top: 22%;
+      right: 34.5%;
+      width: 66.1px;
+      height: 134px;
+      .img {
+        width: 40px;
+        height: 43px;
+        top: 0;
+        right: calc(50% - 40px/2);
+        &:nth-child(2) {
+          height: 64.15px;
+          width: 19.35px;
+          top: 26%;
+          right: 52.4%;
+        }
+        &:nth-child(3) {
+          top: 16%;
+          right: 21%;
+          height: 45px;
+          width: 39.75px;
+        }
+        &:nth-child(4) {
+          height: 45px;
+          width: 39.75px;
+          top: 39.3%;
+          right: 64.4%;
+        }
+        &:nth-child(5) {
+          height: 44px;
+          width: 41.4px;
+          right: 19.8%;
+          top: 67.2%;
+        }
+        &:nth-child(6) {
+          right: 60.4%;
+          top: 66.5%;
+          height: 51px;
+          width: 25.14px;
+        }
+      }
     }
   }
 }

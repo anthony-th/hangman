@@ -5,4 +5,13 @@
   100% {
     transform: rotateZ(-5deg);
   }
+
+}
+@keyframes windForMan {
+  0% {
+    transform: rotateZ(1deg);
+  }
+  100% {
+    transform: rotateZ(-2deg);
+  }
 }

@@ -26,58 +26,66 @@
   justify-content: center;
   position: relative;
   height: max-content;
+  .gallows {
+    width: 360px;
+    height: 394.38px;
+  }
+  .gallows-man {
+    position: absolute;
+    top: 17%;
+    right: 32.5%;
+    width: 103px;
+    height: 209px;
+    animation: windForMan 2s infinite alternate;
+    transform-origin: top center;
+    .img {
+      position: absolute;
+      width: 62px;
+      height: 67px;
+      top: 0%;
+      right: calc(50% - 62px/2);
+      z-index: 7;
+      user-select: none;
+      visibility: hidden;
+      &:nth-child(2) {
+        top: 25%;
+        height: 100px;
+        width: 27px;
+        right: 55%;
+        z-index: 6;
+      }
+      &:nth-child(3) {
+        top: 18.4%;
+        height: 59.16px;
+        width: 54px;
+        right: 19%;
+        z-index: 5;
+      }
+      &:nth-child(4) {
+        top: 38%;
+        height: 59.16px;
+        width: 54px;
+        right: 69%;
+        z-index: 5;
+      }
+      &:nth-child(5) {
+        top: 68%;
+        height: 59.16px;
+        width: 57.6px;
+        right: 24.3%;
+        z-index: 6;
+      }
+      &:nth-child(6) {
+        top: 68%;
+        height: 67px;
+        width: 39.6px;
+        right: 60%;
+        z-index: 7;
+      }
+    }
+  }
 }
 
-.gallows {
-  width: 360px;
-  height: 394.38px;
-}
-
-.img {
-  position: absolute;
-  width: 62px;
-  height: 67px;
-  top: 17%;
-  right: 38%;
-  z-index: 7;
-  user-select: none;
-  visibility: hidden;
-  &:nth-child(3) {
-    top: 31%;
-    height: 100px;
-    width: 27px;
-    right: 48%;
-    z-index: 6;
-  }
-  &:nth-child(4) {
-    top: 26.5%;
-    height: 59.16px;
-    width: 54px;
-    right: 38%;
-    z-index: 5;
-  }
-  &:nth-child(5) {
-    top: 36%;
-    height: 59.16px;
-    width: 54px;
-    right: 52%;
-    z-index: 5;
-  }
-  &:nth-child(6) {
-    top: 53.4%;
-    height: 59.16px;
-    width: 57.6px;
-    right: 39.4%;
-    z-index: 6;
-  }
-  &:nth-child(7) {
-    top: 53%;
-    height: 67px;
-    width: 39.6px;
-    right: 50%;
-    z-index: 7;
-  }
-}
 
 .section-logic {
   display: flex;

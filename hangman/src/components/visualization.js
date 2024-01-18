@@ -1,6 +1,7 @@
 import { createElement } from "./createElement";
 
 export const imagesWrapper = createElement('div', 'section-gallows');
+export const manWrapper = createElement('div', 'gallows-man');
 const gallows = createElement('img', 'gallows');
 gallows.src = './assets/img/1.webp';
 gallows.alt = '';
@@ -23,4 +24,5 @@ export const man6 = createElement('img', 'img');
 man6.src = './assets/img/7.webp';
 man6.alt = '';
 
-imagesWrapper.append(gallows, man1, man2, man3, man4, man5, man6);
+manWrapper.append(man1, man2, man3, man4, man5, man6);
+imagesWrapper.append(gallows, manWrapper);
