@@ -5,6 +5,7 @@
 @import './abstracts/animations';
 
 @import './sections/header';
+@import './sections/footer';
 
 @import './media/hover';
 
@@ -140,6 +141,7 @@
   font-size: 2rem;
   width: 20px;
   height: 50px;
+  text-align: center;
 }
 
 .list {

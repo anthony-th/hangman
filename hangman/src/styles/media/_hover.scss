@@ -14,14 +14,20 @@
       }
     }
   }
-  
-.modal-wrapper {
-  .button-try-again {
-    &:hover {
-      color: #ff810b;
-      animation: none;
-      border-color: #ff810b;
+  .modal-wrapper {
+    .button-try-again {
+      &:hover {
+        color: #ff810b;
+        animation: none;
+        border-color: #ff810b;
+      }
     }
   }
-}
+  .footer {
+    .copyright-link {
+      &:hover {
+        color: #ff810b;
+      }
+    }
+  }
 }
