@@ -9,10 +9,10 @@
 }
 @keyframes windForMan {
   0% {
-    transform: rotateZ(1deg);
+    transform: rotateZ(-2deg);
   }
   100% {
-    transform: rotateZ(-2deg);
+    transform: rotateZ(1deg);
   }
 }
 
