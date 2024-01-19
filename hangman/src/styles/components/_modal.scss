@@ -1,0 +1,52 @@
+.modal-wrapper {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 340px;
+  height: 300px;
+  position: fixed;
+  left: calc(50% - 340px/2);
+  top: calc(50% - 300px/2);
+  z-index: 50;
+  background-color: #242424;
+  border-radius: 10px;
+  transform: translateY(-100vh);
+  .title-modal {
+    color: #ffffff;
+    font-size: 3rem;
+  }
+  .subtitle-modal {
+    color: #ffffff;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .button-try-again {
+    font-size: 1.5rem;
+    padding: 5px 30px;
+    text-transform: capitalize;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background: linear-gradient(
+      to right,
+      #78418c,
+      #9ceb8c,
+      #7e9799,
+      #ff810b,
+      #c11771,
+      #c93b59,
+    );
+    background-size: 300%;
+    background-position: -100%;
+    background-clip: text;
+    color: transparent;
+    animation: gradientPlayAgain 7s infinite alternate-reverse;
+    &:active {
+      color: #ff810b;
+      border-color: #ff810b;
+    }
+  }
+}
