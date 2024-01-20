@@ -19,11 +19,17 @@
       text-align: center;
     }
   }
-  .title-question {
-    text-align: center;
-    font-size: 1.8rem;
-    opacity: 0.9;
-    font-family: IndieFlower;
+  .question-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 126px;
+    .title-question {
+      text-align: center;
+      font-size: 1.8rem;
+      opacity: 0.9;
+      font-family: IndieFlower;
+    }
   }
   .fails {
     display: flex;

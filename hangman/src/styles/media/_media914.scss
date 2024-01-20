@@ -10,13 +10,19 @@
     height: 20px;
   }
   .section-logic {
+    gap: 5px;
     .keyboard-wrapper {
       .button {
         height: 32px;
+        width: 45px;
+        font-size: 0.8rem;
       }
     }
-    .title-question {
-      font-size: 1.3rem;
+    .question-wrapper {
+      height: 90px;
+      .title-question {
+        font-size: 1.3rem;
+      }
     }
   }
 }

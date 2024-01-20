@@ -15,6 +15,7 @@ let lastQuestion = null;
 
 const functionBlock = createElement('div', 'section-logic');
 const maskAnswer = createElement('ul', 'list');
+const questionBlock = createElement('div', 'question-wrapper');
 const question = createElement('h2', 'title-question');
 const fails = createElement('div', 'fails');
 const failsTitle = createElement('h3', 'subtitle')
@@ -112,7 +113,8 @@ function getRandomQuestion() {
   return randomWord;
 }
 
-functionBlock.append(maskAnswer, question, fails);
+questionBlock.append(question);
+functionBlock.append(maskAnswer, questionBlock, fails);
 
 export const createKeyboard = function() {
   const keyboard = createElement('div', 'keyboard-wrapper');
