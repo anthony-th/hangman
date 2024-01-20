@@ -33,9 +33,12 @@ function createImage(src, alt) {
   return img;
 }
 
+export const newGame = createElement('button', 'text')
+newGame.textContent = 'new game?';
+
 manWrapper.append(...manImages);
 womanWrapper.append(woman1, ...womanImages);
-imagesWrapper.append(gallows, manWrapper);
+imagesWrapper.append(gallows, manWrapper, newGame);
 
 //Egg
 headerImage.onclick = toggleImages;
@@ -48,4 +51,5 @@ function toggleImages() {
   imagesWrapper.appendChild(imageContains ? womanGallows : gallows);
   woman1.style.visibility = imageContains ? 'visible' : 'hidden';
   subtitle.style.visibility = imageContains ? 'visible' : 'hidden';
+  newGame.className = imageContains ? 'text-woman' : 'text';
 }

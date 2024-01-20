@@ -75,6 +75,31 @@
   justify-content: center;
   position: relative;
   height: max-content;
+  .text-woman,
+  .text {
+    position: absolute;
+    width: 100px;
+    height: 26px;
+    font-size: 1rem;
+    opacity: 0.7;
+    background: transparent;
+    color: #ffffff;
+    outline: none;
+    padding: 3px 6px;
+    border: none;
+    cursor: pointer;
+  }
+  .text {
+    right: 117px;
+    bottom: 98px;
+    transform: rotateZ(-6.6deg);
+  }
+  .text-woman {
+    left: 32px;
+    top: 26px;
+    transform: rotateZ(-1.6deg);
+    z-index: 9;
+  }
   .woman-gallows {
     width: 360px;
     height: 394.38px;

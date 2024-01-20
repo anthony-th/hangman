@@ -1,5 +1,5 @@
 import { createElement } from "./createElement";
-import { manImages, woman1, womanImages, imagesWrapper, gallows } from "./visualization";
+import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from "./visualization";
 import { shadow } from "..";
 import { titleModal, modalAnswer, modal } from "./modal";
 import dataJson from '../data/questions.json';
@@ -49,6 +49,7 @@ export function playAgain() {
     womanImages.forEach(womanImg => {
       womanImg.style.visibility = 'hidden';
     });
+    newGame.className = 'text';
     shadow.style.display = 'none';
     modal.style.transform = 'translateY(-100vh)';
     currentFails = 0;
@@ -60,6 +61,7 @@ export function playAgain() {
       button.disabled = false;
     }
   } else {
+    newGame.className = 'text-woman';
     woman1.style.visibility = 'visible';
     womanImages.forEach(womanImg => {
       womanImg.style.visibility = 'hidden';
@@ -168,7 +170,8 @@ function buttonPress(letter, button) {
 }
 
 document.onkeydown = (event) => pressDownKeyboard(event);
-modal.addEventListener('transitionend', () => endTranslateY(randomWord.answer))
+modal.addEventListener('transitionend', () => endTranslateY(randomWord.answer));
+newGame.onclick = playAgain;
 
 function pressDownKeyboard(event) {
   if (event.keyCode === 13 && shadow.style.display === 'block') {

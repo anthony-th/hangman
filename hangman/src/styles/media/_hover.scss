@@ -1,4 +1,12 @@
 @media (hover: hover) and (pointer: fine) {
+  .section-gallows {
+    .text,
+    .text-woman {
+      &:hover {
+        color: #ff810b;
+      }
+    }
+  }
   .section-logic {
     .keyboard-wrapper {
       .button {
