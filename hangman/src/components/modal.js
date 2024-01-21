@@ -9,7 +9,7 @@ const modalAnswerSubtitle = createElement('h3', 'modal-subtitle');
 modalAnswerSubtitle.textContent = `Correct answer:`;
 export const modalAnswerText = createElement('p', 'modal-text');
 modalAnswerText.textContent = '';
-const buttonTryAgain = createElement('button', 'button-try-again');
+export const buttonTryAgain = createElement('button', 'button-try-again');
 buttonTryAgain.textContent = 'play again!';
 
 buttonTryAgain.onclick = () => playAgain();

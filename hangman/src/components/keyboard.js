@@ -1,9 +1,11 @@
 import { createElement } from "./createElement";
 import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from "./visualization";
 import { shadow } from "..";
-import { titleModal, modalAnswerText, modal } from "./modal";
+import { titleModal, modalAnswerText, modal, buttonTryAgain } from "./modal";
 import dataJson from '../data/questions.json';
 
+const clickAz = new Audio('./assets/audio/click9.mp3');
+const clickEnter = new Audio('./assets/audio/click4.mp3');
 const maxFails = 6;
 let randomWord = null;
 let currentFails = 0;
@@ -81,6 +83,7 @@ export function playAgain() {
       button.disabled = false;
     }
   }
+  buttonTryAgain.blur();
 }
 
 function getRandomQuestion() {
@@ -176,11 +179,24 @@ modal.addEventListener('transitionend', () => endTranslateY(randomWord.answer));
 newGame.onclick = playAgain;
 
 function pressDownKeyboard(event) {
+  if (event.keyCode === 9) {
+    event.preventDefault();
+  }
   if (event.keyCode === 13 && shadow.style.display === 'block') {
+    clickEnter.pause();
+    clickEnter.currentTime = 0;
+    clickEnter.play();
+    clickEnter.volume = '0.1';
     playAgain();
   } else if (event.keyCode >= 65 && event.keyCode <= 90) {
     const letter = String.fromCharCode(event.keyCode);
     const button = document.getElementById(`key-id-${event.keyCode - 64}`);
+    if (!button.disabled && !gameOver) {
+      clickAz.pause();
+      clickAz.currentTime = 0;
+      clickAz.play();
+      clickAz.volume = '0.1';
+    }
     buttonPress(letter, button);
   }
 }
