@@ -5,10 +5,10 @@
   justify-content: space-between;
   flex-direction: column;
   width: 340px;
-  height: 300px;
+  height: 330px;
   position: fixed;
   left: calc(50% - 340px/2);
-  top: calc(50% - 300px/2);
+  top: calc(50% - 330px/2);
   z-index: 50;
   background-color: #242424;
   border-radius: 10px;
@@ -17,10 +17,20 @@
     color: #ffffff;
     font-size: 3rem;
   }
-  .subtitle-modal {
+  .modal-answer {
     color: #ffffff;
     font-size: 1.7rem;
-    text-align: center;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .modal-text {
+      color: #ff810b;
+      letter-spacing: 0.2rem;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
   }
   .button-try-again {
     font-size: 1.5rem;

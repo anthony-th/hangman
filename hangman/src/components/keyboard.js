@@ -1,7 +1,7 @@
 import { createElement } from "./createElement";
 import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from "./visualization";
 import { shadow } from "..";
-import { titleModal, modalAnswer, modal } from "./modal";
+import { titleModal, modalAnswerText, modal } from "./modal";
 import dataJson from '../data/questions.json';
 
 const maxFails = 6;
@@ -37,7 +37,7 @@ function generateMaskBlock(letter) {
 }
 
 function endTranslateY(answer) {
-  modalAnswer.textContent = `Corrent answer: ${answer}`;
+  modalAnswerText.textContent = `${answer}`;
   modal.removeEventListener('transitionend', endTranslateY);
 }
 
@@ -105,7 +105,7 @@ function getRandomQuestion() {
   const letters = randomWord.answer.split('');
   letters.forEach(letter => generateMaskBlock(letter));
   if (isReloadPage) {
-    modalAnswer.textContent = `Corrent answer: ${randomWord.answer}`;
+    modalAnswerText.textContent = `${randomWord.answer}`;
     console.log('Please, don\'t forget to switch to the English keyboard layout.');
     isReloadPage = false;
   }
