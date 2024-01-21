@@ -2,10 +2,18 @@ import { createElement } from "./createElement";
 import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from "./visualization";
 import { shadow } from "..";
 import { titleModal, modalAnswerText, modal, buttonTryAgain } from "./modal";
+import { soundImage } from "./header";
 import dataJson from '../data/questions.json';
 
-const clickAz = new Audio('./assets/audio/click9.mp3');
-const clickEnter = new Audio('./assets/audio/click4.mp3');
+const soundClickAz = new Audio('./assets/audio/click-enter.mp3');
+const soundClickEnter = new Audio('./assets/audio/click-a-z.mp3');
+const soundLost = new Audio('./assets/audio/lost.mp3');
+const soundWin = new Audio('./assets/audio/win.mp3');
+soundClickAz.volume = 0.1;
+soundClickEnter.volume = 0.1;
+soundLost.volume = 0.1;
+soundWin.volume = 0.1;
+let mute = true;
 const maxFails = 6;
 let randomWord = null;
 let currentFails = 0;
@@ -154,6 +162,9 @@ function buttonPress(letter, button) {
         shadow.style.display = 'block';
         modal.style.transform = 'translateY(0)';
       });
+      if (!mute) {
+        soundAfterModalTransition();
+      }
     }
   }
   button.disabled = true;
@@ -172,6 +183,17 @@ function buttonPress(letter, button) {
       shadow.style.display = 'block';
       modal.style.transform = 'translateY(0)';
     });
+    if (!mute) {
+      soundAfterModalTransition();
+    }
+  }
+}
+
+const soundAfterModalTransition = () => {
+  if (currentFails === maxFails)  {
+    playSound(true, soundLost);
+  } else {
+    playSound(true, soundWin);
   }
 }
 
@@ -184,21 +206,23 @@ function pressDownKeyboard(event) {
     event.preventDefault();
   }
   if (event.keyCode === 13 && shadow.style.display === 'block') {
-    clickEnter.pause();
-    clickEnter.currentTime = 0;
-    clickEnter.play();
-    clickEnter.volume = '0.1';
+    playSound(!mute, soundClickEnter);
     playAgain();
   } else if (event.keyCode >= 65 && event.keyCode <= 90) {
     const letter = String.fromCharCode(event.keyCode);
     const button = document.getElementById(`key-id-${event.keyCode - 64}`);
-    if (!button.disabled && !gameOver) {
-      clickAz.pause();
-      clickAz.currentTime = 0;
-      clickAz.play();
-      clickAz.volume = '0.1';
+    if (!button.disabled && !gameOver && !mute) {
+      playSound(true, soundClickAz);
     }
     buttonPress(letter, button);
+  }
+}
+
+function playSound(condition, sound) {
+  if (condition) {
+    sound.pause();
+    sound.currentTime = 0;
+    sound.play();
   }
 }
 
@@ -232,5 +256,19 @@ function updateVisibility() {
       break;
   }
 }
+
+const toggleSound = () => {
+  mute = !mute;
+  soundImage.src = mute ? './assets/img/mute.webp' : './assets/img/sound-on.webp';
+  localStorage.setItem('mute', mute);
+}
+
+const muteStatus = localStorage.getItem('mute');
+if (muteStatus !== null) {
+  mute = JSON.parse(muteStatus);
+  soundImage.src = mute ? './assets/img/mute.webp' : './assets/img/sound-on.webp';
+}
+
+soundImage.onclick = toggleSound;
 
 getRandomQuestion();
