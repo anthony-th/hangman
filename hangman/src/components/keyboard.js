@@ -84,6 +84,7 @@ export function playAgain() {
     }
   }
   buttonTryAgain.blur();
+  newGame.blur();
 }
 
 function getRandomQuestion() {
