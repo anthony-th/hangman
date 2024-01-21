@@ -9,7 +9,7 @@ export const headerImage = createElement('img', 'header-image');
 headerImage.src = './assets/img/wood.webp';
 headerImage.alt = '';
 export const soundImage = createElement('img', 'sound-image');
-soundImage.src = './assets/img/mute.png';
+soundImage.src = './assets/img/mute.webp';
 soundImage.alt = 'On \ Off Sound';
 
 header.append(title, headerImage, subtitle, soundImage);
