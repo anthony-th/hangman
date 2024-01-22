@@ -51,45 +51,32 @@ function endTranslateY(answer) {
   modal.removeEventListener('transitionend', endTranslateY);
 }
 
+function resetGameVisibility() {
+  manImages.forEach(manImg => {
+    manImg.style.visibility = 'hidden';
+  });
+  womanImages.forEach(womanImg => {
+    womanImg.style.visibility = 'hidden';
+  });
+  newGame.className = imagesWrapper.contains(gallows) ? 'text' : 'text-woman';
+}
+
 export function playAgain() {
+  resetGameVisibility();
   if (imagesWrapper.contains(gallows)) {
-    manImages.forEach(manImg => {
-      manImg.style.visibility = 'hidden';
-    });
     woman1.style.visibility = 'hidden';
-    womanImages.forEach(womanImg => {
-      womanImg.style.visibility = 'hidden';
-    });
-    newGame.className = 'text';
-    shadow.style.display = 'none';
-    modal.style.transform = 'translateY(-100vh)';
-    currentFails = 0;
-    greenSpan.textContent = currentFails;
-    getRandomQuestion();
-    gameOver = false;
-    for (let charCode = 65; charCode <= 90; charCode++) {
-      const button = document.getElementById(`key-id-${charCode - 64}`);
-      button.disabled = false;
-    }
   } else {
-    newGame.className = 'text-woman';
     woman1.style.visibility = 'visible';
-    womanImages.forEach(womanImg => {
-      womanImg.style.visibility = 'hidden';
-    });
-    manImages.forEach(manImg => {
-      manImg.style.visibility = 'hidden';
-    });
-    shadow.style.display = 'none';
-    modal.style.transform = 'translateY(-100vh)';
-    currentFails = 0;
-    greenSpan.textContent = currentFails;
-    getRandomQuestion();
-    gameOver = false;
-    for (let charCode = 65; charCode <= 90; charCode++) {
-      const button = document.getElementById(`key-id-${charCode - 64}`);
-      button.disabled = false;
-    }
+  }
+  shadow.style.display = 'none';
+  modal.style.transform = 'translateY(-100vh)';
+  currentFails = 0;
+  greenSpan.textContent = currentFails;
+  getRandomQuestion();
+  gameOver = false;
+  for (let charCode = 65; charCode <= 90; charCode++) {
+    const button = document.getElementById(`key-id-${charCode - 64}`);
+    button.disabled = false;
   }
   buttonTryAgain.blur();
   newGame.blur();
@@ -227,33 +214,19 @@ function playSound(condition, sound) {
 }
 
 function updateVisibility() {
+  const showParts = (manIndex, womanIndex) => {
+    manImages[manIndex].style.visibility = 'visible';
+    womanImages[womanIndex].style.visibility = 'visible';
+  };
+
   switch (currentFails) {
-    case 1:
-      manImages[0].style.visibility = 'visible';
-      womanImages[0].style.visibility = 'visible';
-      break;
-    case 2:
-      manImages[1].style.visibility = 'visible';
-      womanImages[1].style.visibility = 'visible';
-      break;
-    case 3:
-      manImages[2].style.visibility = 'visible';
-      womanImages[2].style.visibility = 'visible';
-      break;
-    case 4:
-      manImages[3].style.visibility = 'visible';
-      womanImages[3].style.visibility = 'visible';
-      break;
-    case 5:
-      manImages[4].style.visibility = 'visible';
-      womanImages[4].style.visibility = 'visible';
-      break;
-    case 6:
-      manImages[5].style.visibility = 'visible';
-      womanImages[5].style.visibility = 'visible';
-      break;
-    default:
-      break;
+    case 1: showParts(0, 0); break;
+    case 2: showParts(1, 1); break;
+    case 3: showParts(2, 2); break;
+    case 4: showParts(3, 3); break;
+    case 5: showParts(4, 4); break;
+    case 6: showParts(5, 5); break;
+    default: break;
   }
 }
 
