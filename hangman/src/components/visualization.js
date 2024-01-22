@@ -1,8 +1,14 @@
 import { createElement } from './createElement';
 import { headerImage, subtitle } from './header';
 
-export const imagesWrapper = createElement('div', 'section-gallows');
+const createImage = (src, alt) => {
+  const img = createElement('img', alt);
+  img.src = src;
+  img.alt = '';
+  return img;
+}
 
+export const imagesWrapper = createElement('div', 'section-gallows');
 export const manWrapper = createElement('div', 'gallows-man');
 export const gallows = createImage('./assets/img/1.webp', 'gallows');
 export const manImages = [
@@ -26,13 +32,6 @@ export const womanImages = [
   createImage('./assets/img/c8.webp', 'woman-img'),
 ];
 
-function createImage(src, alt) {
-  const img = createElement('img', alt);
-  img.src = src;
-  img.alt = '';
-  return img;
-}
-
 export const newGame = createElement('button', 'text')
 newGame.textContent = 'new game?';
 
@@ -41,9 +40,7 @@ womanWrapper.append(woman1, ...womanImages);
 imagesWrapper.append(gallows, manWrapper, newGame);
 
 //Egg
-headerImage.onclick = toggleImages;
-
-function toggleImages() {
+const toggleImages = () => {
   const imageContains = imagesWrapper.contains(gallows);
   imagesWrapper.removeChild(imageContains ? gallows : womanGallows);
   imagesWrapper.removeChild(imageContains ? manWrapper : womanWrapper);
@@ -53,3 +50,5 @@ function toggleImages() {
   subtitle.style.visibility = imageContains ? 'visible' : 'hidden';
   newGame.className = imageContains ? 'text-woman' : 'text';
 }
+
+headerImage.onclick = toggleImages;

@@ -38,7 +38,7 @@ slash.textContent = '/';
 orangeSpan.textContent = maxFails;
 fails.append(failsTitle, greenSpan, slash, orangeSpan);
 
-function generateMaskBlock(letter) {
+const generateMaskBlock = (letter) => {
   const item = createElement('li', 'list-item');
   item.textContent = '';
   item.dataset.letter = letter;
@@ -46,12 +46,12 @@ function generateMaskBlock(letter) {
   listItems.push(item);
 }
 
-function endTranslateY(answer) {
+const endTranslateY = (answer) => {
   modalAnswerText.textContent = `${answer}`;
   modal.removeEventListener('transitionend', endTranslateY);
 }
 
-function resetGameVisibility() {
+const resetGameVisibility = () => {
   manImages.forEach(manImg => {
     manImg.style.visibility = 'hidden';
   });
@@ -61,7 +61,7 @@ function resetGameVisibility() {
   newGame.className = imagesWrapper.contains(gallows) ? 'text' : 'text-woman';
 }
 
-export function playAgain() {
+export const playAgain = () => {
   resetGameVisibility();
   if (imagesWrapper.contains(gallows)) {
     woman1.style.visibility = 'hidden';
@@ -82,7 +82,7 @@ export function playAgain() {
   newGame.blur();
 }
 
-function getRandomQuestion() {
+const getRandomQuestion = () => {
   let unusedQuestion = dataJson.filter(question => !wasQuestions.includes(question.id));
   if (unusedQuestion.length === 0) {
     wasQuestions = [];
@@ -115,7 +115,7 @@ function getRandomQuestion() {
 questionBlock.append(question);
 functionBlock.append(maskAnswer, questionBlock, fails);
 
-export const createKeyboard = function() {
+export const createKeyboard = () => {
   const keyboard = createElement('div', 'keyboard-wrapper');
   for (let charCode = 65; charCode <= 90; charCode++) {
     const letter = String.fromCharCode(charCode);
@@ -129,7 +129,7 @@ export const createKeyboard = function() {
   return functionBlock;
 }
 
-function buttonPress(letter, button) {
+const buttonPress = (letter, button) => {
   if (gameOver || button.disabled) {
     return;
   }
@@ -188,7 +188,7 @@ document.onkeydown = (event) => pressDownKeyboard(event);
 modal.addEventListener('transitionend', () => endTranslateY(randomWord.answer));
 newGame.onclick = playAgain;
 
-function pressDownKeyboard(event) {
+const pressDownKeyboard = (event) => {
   if (event.keyCode === 9) {
     event.preventDefault();
   }
@@ -205,7 +205,7 @@ function pressDownKeyboard(event) {
   }
 }
 
-function playSound(condition, sound) {
+const playSound = (condition, sound) => {
   if (condition) {
     sound.pause();
     sound.currentTime = 0;
@@ -213,7 +213,7 @@ function playSound(condition, sound) {
   }
 }
 
-function updateVisibility() {
+const updateVisibility = () => {
   const showParts = (manIndex, womanIndex) => {
     manImages[manIndex].style.visibility = 'visible';
     womanImages[womanIndex].style.visibility = 'visible';
