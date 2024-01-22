@@ -22,6 +22,7 @@ let gameOver = false;
 let wasQuestions = [];
 let isReloadPage = true;
 let lastQuestion = null;
+const buttons = {};
 
 const functionBlock = createElement('div', 'section-logic');
 const maskAnswer = createElement('ul', 'list');
@@ -71,8 +72,8 @@ export const playAgain = () => {
   getRandomQuestion();
   gameOver = false;
   for (let charCode = 65; charCode <= 90; charCode++) {
-    const button = document.getElementById(`key-id-${charCode - 64}`);
-    button.disabled = false;
+    const buttonId = `key-id-${charCode - 64}`;
+    buttons[buttonId].disabled = false;
   }
   buttonTryAgain.blur();
   newGame.blur();
@@ -117,8 +118,10 @@ export const createKeyboard = () => {
     const letter = String.fromCharCode(charCode);
     const button = createElement('button', 'button');
     button.textContent = letter;
-    button.id = `key-id-${charCode - 64}`;
+    const buttonId = `key-id-${charCode - 64}`;
+    button.id = buttonId;
     keyboard.append(button);
+    buttons[buttonId] = button;
     button.onclick = () => buttonPress(letter, button);
   }
   functionBlock.append(keyboard);
@@ -193,7 +196,8 @@ const pressDownKeyboard = (event) => {
     playAgain();
   } else if (event.keyCode >= 65 && event.keyCode <= 90) {
     const letter = String.fromCharCode(event.keyCode);
-    const button = document.getElementById(`key-id-${event.keyCode - 64}`);
+    const buttonId = `key-id-${event.keyCode - 64}`;
+    const button = buttons[buttonId];
     if (!button.disabled && !gameOver && !mute) {
       playSound(true, soundClickAz);
     }
