@@ -1,8 +1,8 @@
-import { createElement } from "./createElement";
-import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from "./visualization";
-import { shadow } from "..";
-import { titleModal, modalAnswerText, modal, buttonTryAgain } from "./modal";
-import { soundImage } from "./header";
+import { createElement } from './createElement';
+import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from './visualization';
+import { shadow } from '..';
+import { titleModal, modalAnswerText, modal, buttonTryAgain } from './modal';
+import { soundImage } from './header';
 import dataJson from '../data/questions.json';
 
 const soundClickAz = new Audio('./assets/audio/click-enter.mp3');
@@ -132,7 +132,7 @@ export const createKeyboard = function() {
   const keyboard = createElement('div', 'keyboard-wrapper');
   for (let charCode = 65; charCode <= 90; charCode++) {
     const letter = String.fromCharCode(charCode);
-    const button = createElement("button", "button");
+    const button = createElement('button', 'button');
     button.textContent = letter;
     button.id = `key-id-${charCode - 64}`;
     keyboard.append(button);
@@ -155,7 +155,7 @@ function buttonPress(letter, button) {
     currentFails += 1;
     updateVisibility();
     if (currentFails === maxFails) {
-      console.log("u lost");
+      console.log('u lost');
       gameOver = true;
       titleModal.textContent = 'You lost!';
       requestAnimationFrame(() => {
@@ -176,7 +176,7 @@ function buttonPress(letter, button) {
   greenSpan.textContent = currentFails;
   const notEmpty = listItems.every(item => item.textContent.trim() !== '');
   if (notEmpty) {
-    console.log("u win!");
+    console.log('u win!');
     gameOver = true;
     titleModal.textContent = 'You win!';
     requestAnimationFrame(() => {

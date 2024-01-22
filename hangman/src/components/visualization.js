@@ -1,5 +1,5 @@
-import { createElement } from "./createElement";
-import { headerImage, subtitle } from "./header";
+import { createElement } from './createElement';
+import { headerImage, subtitle } from './header';
 
 export const imagesWrapper = createElement('div', 'section-gallows');
 
