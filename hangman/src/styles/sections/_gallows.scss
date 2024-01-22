@@ -6,6 +6,7 @@
   justify-content: center;
   position: relative;
   height: max-content;
+  user-select: none;
   .gallows {
     width: 360px;
     height: 394.38px;
@@ -25,7 +26,6 @@
       top: 0%;
       right: calc(50% - 62px/2);
       z-index: 7;
-      user-select: none;
       visibility: hidden;
       &:nth-child(2) {
         top: 25%;
@@ -75,6 +75,7 @@
   justify-content: center;
   position: relative;
   height: max-content;
+  user-select: none;
   .text-woman,
   .text {
     position: absolute;
@@ -88,7 +89,6 @@
     padding: 3px 6px;
     border: none;
     cursor: pointer;
-    user-select: none;
     z-index: 10;
   }
   .text {
@@ -123,7 +123,6 @@
       top: -2%;
       right: calc(61% - 80px);
       z-index: 7;
-      user-select: none;
       visibility: hidden;
       &:nth-child(2) {
         top: 34.1%;
