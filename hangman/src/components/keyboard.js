@@ -63,11 +63,7 @@ const resetGameVisibility = () => {
 
 export const playAgain = () => {
   resetGameVisibility();
-  if (imagesWrapper.contains(gallows)) {
-    woman1.style.visibility = 'hidden';
-  } else {
-    woman1.style.visibility = 'visible';
-  }
+  woman1.style.visibility = imagesWrapper.contains(gallows) ? 'hidden' : 'visible';
   shadow.style.display = 'none';
   modal.style.transform = 'translateY(-100vh)';
   currentFails = 0;
