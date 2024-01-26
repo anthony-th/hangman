@@ -3,7 +3,7 @@ import { playAgain } from './keyboard';
 
 export const modal = createElement('div', 'modal-wrapper');
 export const titleModal = createElement('h2', 'title-modal');
-titleModal.textContent = 'You win!';
+titleModal.textContent = 'You win';
 const modalAnswerBlock = createElement('div', 'modal-answer');
 const modalAnswerSubtitle = createElement('h3', 'modal-subtitle');
 modalAnswerSubtitle.textContent = `Correct answer:`;

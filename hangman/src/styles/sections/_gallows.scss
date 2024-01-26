@@ -7,9 +7,100 @@
   position: relative;
   height: max-content;
   user-select: none;
-  .gallows {
+  .text-woman,
+  .text {
+    position: absolute;
+    width: 100px;
+    height: 26px;
+    font-size: 1rem;
+    opacity: 0.7;
+    background: transparent;
+    color: $white;
+    outline: none;
+    padding: 3px 6px;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .text {
+    right: 117px;
+    bottom: 98px;
+    transform: rotateZ(-6.6deg);
+  }
+  .text-woman {
+    left: 32px;
+    top: 26px;
+    transform: rotateZ(-1.6deg);
+    z-index: 9;
+  }
+  .gallows,
+  .woman-gallows {
     width: 360px;
     height: 394.38px;
+  }
+  .woman-gallows {
+    position: relative;
+    z-index: 8;
+  }
+  .gallows-woman {
+    position: absolute;
+    top: 6%;
+    right: 0;
+    width: 100%;
+    height: 94%;
+    animation: windForWoMan 3.7s infinite alternate;
+    transform-origin: top center;
+    .woman-img {
+      position: absolute;
+      width: 136.97px;
+      height: 369.89px;
+      top: -2%;
+      right: calc(61% - 80px);
+      z-index: 7;
+      visibility: hidden;
+      &:nth-child(2) {
+        top: 33.1%;
+        width: 68.27px;
+        height: 51.34px;
+        right: 48.9%;
+        z-index: 7;
+      }
+      &:nth-child(3) {
+        top: 42.2%;
+        width: 40.26px;
+        height: 33.72px;
+        right: 49.2%;
+        z-index: 5;
+      }
+      &:nth-child(4) {
+        top: 33.5%;
+        width: 82px;
+        height: 92px;
+        right: 48.2%;
+        z-index: 9;
+      }
+      &:nth-child(5) {
+        top: 37.8%;
+        width: 44px;
+        height: 42px;
+        right: 65.5%;
+        z-index: 7;
+      }
+      &:nth-child(6) {
+        top: 53.5%;
+        width: 106.77px;
+        height: 93.86px;
+        right: 32%;
+        z-index: 8;
+      }
+      &:nth-child(7) {
+        top: 60.6%;
+        width: 47.53px;
+        height: 45.76px;
+        right: 40.2%;
+        z-index: 8;
+      }
+    }
   }
   .gallows-man {
     position: absolute;
@@ -61,110 +152,6 @@
         width: 39.6px;
         right: 60%;
         z-index: 7;
-      }
-    }
-  }
-}
-
-
-.section-gallows {
-  width: 360px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  height: max-content;
-  user-select: none;
-  .text-woman,
-  .text {
-    position: absolute;
-    width: 100px;
-    height: 26px;
-    font-size: 1rem;
-    opacity: 0.7;
-    background: transparent;
-    color: #ffffff;
-    outline: none;
-    padding: 3px 6px;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-  }
-  .text {
-    right: 117px;
-    bottom: 98px;
-    transform: rotateZ(-6.6deg);
-  }
-  .text-woman {
-    left: 32px;
-    top: 26px;
-    transform: rotateZ(-1.6deg);
-    z-index: 9;
-  }
-  .woman-gallows {
-    width: 360px;
-    height: 394.38px;
-    position: relative;
-    z-index: 8;
-  }
-  .gallows-woman {
-    position: absolute;
-    top: 6%;
-    right: 0;
-    width: 100%;
-    height: 94%;
-    animation: windForWoMan 3.7s infinite alternate;
-    transform-origin: top center;
-    .woman-img {
-      position: absolute;
-      width: 136.97px;
-      height: 369.89px;
-      top: -2%;
-      right: calc(61% - 80px);
-      z-index: 7;
-      visibility: hidden;
-      &:nth-child(2) {
-        top: 34.1%;
-        width: 68.27px;
-        height: 51.34px;
-        right: 48.9%;
-        z-index: 5;
-      }
-      &:nth-child(3) {
-        top: 43.2%;
-        width: 40.26px;
-        height: 33.72px;
-        right: 49.2%;
-        z-index: 5;
-      }
-      &:nth-child(4) {
-        top: 34.1%;
-        width: 68.96px;
-        height: 91.86px;
-        right: 49.2%;
-        z-index: 9;
-      }
-      &:nth-child(5) {
-        top: 38%;
-        width: 43.52px;
-        height: 41.62px;
-        right: 63.5%;
-        z-index: 7;
-      }
-      &:nth-child(6) {
-        top: 53.5%;
-        width: 106.77px;
-        height: 93.86px;
-        right: 32%;
-        z-index: 8;
-      }
-      &:nth-child(7) {
-        top: 60.6%;
-        width: 47.53px;
-        height: 45.76px;
-        right: 40.2%;
-        z-index: 8;
       }
     }
   }

@@ -143,7 +143,7 @@ const buttonPress = (letter, button) => {
     if (currentFails === maxFails) {
       console.log('u lost');
       gameOver = true;
-      titleModal.textContent = 'You lost!';
+      titleModal.textContent = 'You lost';
       requestAnimationFrame(() => {
         shadow.style.display = 'block';
         modal.style.transform = 'translateY(0)';
@@ -164,7 +164,7 @@ const buttonPress = (letter, button) => {
   if (notEmpty) {
     console.log('u win!');
     gameOver = true;
-    titleModal.textContent = 'You win!';
+    titleModal.textContent = 'You win';
     requestAnimationFrame(() => {
       shadow.style.display = 'block';
       modal.style.transform = 'translateY(0)';
