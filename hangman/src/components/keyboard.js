@@ -1,9 +1,9 @@
 import { createElement } from './createElement';
 import { buttons, functionBlock, buttonPress } from './game';
 
-export const createKeyboard = () => {
+const createKeyboard = () => {
   const keyboard = createElement('div', 'keyboard-wrapper');
-  for (let charCode = 65; charCode <= 90; charCode++) {
+  for (let charCode = 65; charCode <= 90; charCode += 1) {
     const letter = String.fromCharCode(charCode);
     const button = createElement('button', 'button');
     button.textContent = letter;
@@ -15,4 +15,6 @@ export const createKeyboard = () => {
   }
   functionBlock.append(keyboard);
   return functionBlock;
-}
+};
+
+export { createKeyboard as keyboard };

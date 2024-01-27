@@ -1,6 +1,12 @@
 import { createElement } from './createElement';
-import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from './visualization';
-import { shadow } from '..';
+import {
+  manImages,
+  woman1,
+  womanImages,
+  imagesWrapper,
+  gallows,
+  newGame,
+} from './visualization';
 import { titleModal, modalAnswerText, modal, buttonTryAgain } from './modal';
 import { soundImage } from './header';
 import dataJson from '../data/questions.json';
@@ -24,12 +30,13 @@ let isReloadPage = true;
 let lastQuestion = null;
 export const buttons = {};
 
+const shadow = createElement('div', 'shadow');
 export const functionBlock = createElement('div', 'section-logic');
 const maskAnswer = createElement('ul', 'list');
 const questionBlock = createElement('div', 'question-wrapper');
-const question = createElement('h2', 'title-question');
+const questionTitle = createElement('h2', 'title-question');
 const fails = createElement('div', 'fails');
-const failsTitle = createElement('h3', 'subtitle')
+const failsTitle = createElement('h3', 'subtitle');
 failsTitle.textContent = 'Fails: ';
 const greenSpan = createElement('span', 'green');
 greenSpan.textContent = currentFails;
@@ -45,46 +52,33 @@ const generateMaskBlock = (letter) => {
   item.dataset.letter = letter;
   maskAnswer.append(item);
   listItems.push(item);
-}
+};
 
 const endTranslateY = (answer) => {
   modalAnswerText.textContent = `${answer}`;
   modal.removeEventListener('transitionend', endTranslateY);
-}
+};
 
 const resetGameVisibility = () => {
-  manImages.forEach(manImg => {
+  manImages.forEach((manImg) => {
     manImg.style.visibility = 'hidden';
   });
-  womanImages.forEach(womanImg => {
+  womanImages.forEach((womanImg) => {
     womanImg.style.visibility = 'hidden';
   });
   newGame.className = imagesWrapper.contains(gallows) ? 'text' : 'text-woman';
-}
-
-export const playAgain = () => {
-  resetGameVisibility();
-  woman1.style.visibility = imagesWrapper.contains(gallows) ? 'hidden' : 'visible';
-  shadow.style.display = 'none';
-  modal.style.transform = 'translateY(-100vh)';
-  currentFails = 0;
-  greenSpan.textContent = currentFails;
-  getRandomQuestion();
-  gameOver = false;
-  for (let charCode = 65; charCode <= 90; charCode++) {
-    const buttonId = `key-id-${charCode - 64}`;
-    buttons[buttonId].disabled = false;
-  }
-  buttonTryAgain.blur();
-  newGame.blur();
-}
+};
 
 const getRandomQuestion = () => {
-  let unusedQuestion = dataJson.filter(question => !wasQuestions.includes(question.id));
+  let unusedQuestion = dataJson.filter(
+    (question) => !wasQuestions.includes(question.id)
+  );
   if (unusedQuestion.length === 0) {
     wasQuestions = [];
     unusedQuestion = dataJson;
-    console.log(`This game has a total of ${dataJson.length} questions. You have answered all ${dataJson.length}   questions. From now on, the questions will start repeating.`);
+    console.log(
+      `This game has a total of ${dataJson.length} questions. You have answered all ${dataJson.length}   questions. From now on, the questions will start repeating.`
+    );
   }
   const randomIndex = Math.floor(Math.random() * unusedQuestion.length);
   randomWord = unusedQuestion[randomIndex];
@@ -92,33 +86,102 @@ const getRandomQuestion = () => {
     const newIndex = Math.floor(Math.random() * unusedQuestion.length);
     randomWord = unusedQuestion[newIndex];
   }
-  lastQuestion = randomWord; 
+  lastQuestion = randomWord;
   wasQuestions.push(randomWord.id);
-  question.textContent = randomWord.question;
+  questionTitle.textContent = randomWord.question;
   maskAnswer.innerHTML = '';
   gameOver = false;
   listItems = [];
   const letters = randomWord.answer.split('');
-  letters.forEach(letter => generateMaskBlock(letter));
+  letters.forEach((letter) => generateMaskBlock(letter));
   if (isReloadPage) {
     modalAnswerText.textContent = `${randomWord.answer}`;
-    console.log('Please, don\'t forget to switch to the English keyboard layout.');
+    console.log(
+      "Please, don't forget to switch to the English keyboard layout."
+    );
     isReloadPage = false;
   }
-  console.log(`Answer: ` + randomWord.answer);
+  console.log(`Answer: ${randomWord.answer}`);
   return randomWord;
-}
+};
 
-questionBlock.append(question);
+const playAgain = () => {
+  resetGameVisibility();
+  woman1.style.visibility = imagesWrapper.contains(gallows)
+    ? 'hidden'
+    : 'visible';
+  shadow.style.display = 'none';
+  modal.style.transform = 'translateY(-100vh)';
+  currentFails = 0;
+  greenSpan.textContent = currentFails;
+  getRandomQuestion();
+  gameOver = false;
+  for (let charCode = 65; charCode <= 90; charCode += 1) {
+    const buttonId = `key-id-${charCode - 64}`;
+    buttons[buttonId].disabled = false;
+  }
+  buttonTryAgain.blur();
+  newGame.blur();
+};
+
+const playSound = (condition, sound) => {
+  if (condition) {
+    sound.pause();
+    sound.currentTime = 0;
+    sound.play();
+  }
+};
+
+const soundAfterModalTransition = () => {
+  if (currentFails === maxFails) {
+    playSound(true, soundLost);
+  } else {
+    playSound(true, soundWin);
+  }
+};
+
+questionBlock.append(questionTitle);
 functionBlock.append(maskAnswer, questionBlock, fails);
+
+const updateVisibility = () => {
+  const showParts = (manIndex, womanIndex) => {
+    manImages[manIndex].style.visibility = 'visible';
+    womanImages[womanIndex].style.visibility = 'visible';
+  };
+
+  switch (currentFails) {
+    case 1:
+      showParts(0, 0);
+      break;
+    case 2:
+      showParts(1, 1);
+      break;
+    case 3:
+      showParts(2, 2);
+      break;
+    case 4:
+      showParts(3, 3);
+      break;
+    case 5:
+      showParts(4, 4);
+      break;
+    case 6:
+      showParts(5, 5);
+      break;
+    default:
+      break;
+  }
+};
 
 export const buttonPress = (letter, button) => {
   if (gameOver || button.disabled) {
     return;
   }
-  const filterItems = listItems.filter(item => item.dataset.letter.toLowerCase() === letter.toLowerCase());
+  const filterItems = listItems.filter(
+    (item) => item.dataset.letter.toLowerCase() === letter.toLowerCase()
+  );
   if (filterItems.length > 0) {
-    filterItems.forEach(item => {
+    filterItems.forEach((item) => {
       item.textContent = letter;
     });
   } else {
@@ -138,13 +201,13 @@ export const buttonPress = (letter, button) => {
     }
   }
   button.disabled = true;
-  listItems.forEach(item => {
+  listItems.forEach((item) => {
     if (item.textContent.trim() !== '') {
       item.style.borderBottom = 'none';
     }
   });
   greenSpan.textContent = currentFails;
-  const notEmpty = listItems.every(item => item.textContent.trim() !== '');
+  const notEmpty = listItems.every((item) => item.textContent.trim() !== '');
   if (notEmpty) {
     console.log('u win!');
     gameOver = true;
@@ -157,19 +220,7 @@ export const buttonPress = (letter, button) => {
       soundAfterModalTransition();
     }
   }
-}
-
-const soundAfterModalTransition = () => {
-  if (currentFails === maxFails)  {
-    playSound(true, soundLost);
-  } else {
-    playSound(true, soundWin);
-  }
-}
-
-document.onkeydown = (event) => pressDownKeyboard(event);
-modal.addEventListener('transitionend', () => endTranslateY(randomWord.answer));
-newGame.onclick = playAgain;
+};
 
 const pressDownKeyboard = (event) => {
   if (event.keyCode === 9) {
@@ -187,45 +238,30 @@ const pressDownKeyboard = (event) => {
     }
     buttonPress(letter, button);
   }
-}
-
-const playSound = (condition, sound) => {
-  if (condition) {
-    sound.pause();
-    sound.currentTime = 0;
-    sound.play();
-  }
-}
-
-const updateVisibility = () => {
-  const showParts = (manIndex, womanIndex) => {
-    manImages[manIndex].style.visibility = 'visible';
-    womanImages[womanIndex].style.visibility = 'visible';
-  };
-
-  switch (currentFails) {
-    case 1: showParts(0, 0); break;
-    case 2: showParts(1, 1); break;
-    case 3: showParts(2, 2); break;
-    case 4: showParts(3, 3); break;
-    case 5: showParts(4, 4); break;
-    case 6: showParts(5, 5); break;
-    default: break;
-  }
-}
+};
 
 const toggleSound = () => {
   mute = !mute;
-  soundImage.src = mute ? './assets/img/mute.webp' : './assets/img/sound-on.webp';
+  soundImage.src = mute
+    ? './assets/img/mute.webp'
+    : './assets/img/sound-on.webp';
   localStorage.setItem('mute', mute);
-}
+};
 
 const muteStatus = localStorage.getItem('mute');
 if (muteStatus !== null) {
   mute = JSON.parse(muteStatus);
-  soundImage.src = mute ? './assets/img/mute.webp' : './assets/img/sound-on.webp';
+  soundImage.src = mute
+    ? './assets/img/mute.webp'
+    : './assets/img/sound-on.webp';
 }
 
 soundImage.onclick = toggleSound;
 
 getRandomQuestion();
+document.onkeydown = (event) => pressDownKeyboard(event);
+modal.addEventListener('transitionend', () => endTranslateY(randomWord.answer));
+newGame.onclick = playAgain;
+buttonTryAgain.onclick = () => playAgain();
+
+export default shadow;

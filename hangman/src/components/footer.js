@@ -1,4 +1,4 @@
-import { createElement } from "./createElement"
+import { createElement } from './createElement';
 
 export const footer = createElement('footer', 'footer');
 const copyrightText = createElement('p', 'copyright-text');

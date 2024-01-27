@@ -1,18 +1,18 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  devtool: "source-map",
+  devtool: 'source-map',
   entry: {
-    index: path.resolve(__dirname, "src", "index.js"),
+    index: path.resolve(__dirname, 'src', 'index.js'),
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
   },
   resolve: {
     extensions: ['.js'],
@@ -23,9 +23,9 @@ module.exports = {
         test: /\.m?js$/i,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -33,30 +33,30 @@ module.exports = {
         test: /\.((c|sa|sc)ss)$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
+          'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [require("postcss-preset-env")],
+                plugins: [require('postcss-preset-env')],
               },
             },
           },
-          "sass-loader",
+          'sass-loader',
         ],
       },
       {
         test: /\.(?:ico|gif|png|jpg|webp|jpeg)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/img/[name][ext]",
+          filename: 'assets/img/[name][ext]',
         },
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/fonts/[name][ext]",
+          filename: 'assets/fonts/[name][ext]',
         },
       },
     ],
@@ -64,19 +64,19 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "src/assets/img/", to: "assets/img/" },
-        { from: "src/assets/audio/", to: "assets/audio/" },
+        { from: 'src/assets/img/', to: 'assets/img/' },
+        { from: 'src/assets/audio/', to: 'assets/audio/' },
       ],
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.html"),
-      filename: "index.html",
+      template: path.resolve(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
     }),
     new FaviconsWebpackPlugin({
-      logo: "./src/assets/img/favicon.png",
-      mode: "webapp",
-      devMode: "webapp",
-      prefix: "assets/img/",
+      logo: './src/assets/img/favicon.png',
+      mode: 'webapp',
+      devMode: 'webapp',
+      prefix: 'assets/img/',
       favicons: {
         icons: {
           android: false,
@@ -91,7 +91,7 @@ module.exports = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: '[name].[contenthash].css',
     }),
     new CleanWebpackPlugin(),
   ],
