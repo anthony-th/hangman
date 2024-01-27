@@ -1,5 +1,5 @@
 import { createElement } from './createElement';
-import { playAgain } from './keyboard';
+import { playAgain } from './game';
 
 export const modal = createElement('div', 'modal-wrapper');
 export const titleModal = createElement('h2', 'title-modal');
