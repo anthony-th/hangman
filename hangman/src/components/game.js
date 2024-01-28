@@ -258,10 +258,12 @@ if (muteStatus !== null) {
 
 soundImage.onclick = toggleSound;
 
-getRandomQuestion();
 document.onkeydown = (event) => pressDownKeyboard(event);
 modal.addEventListener('transitionend', () => endTranslateY(randomWord.answer));
 newGame.onclick = playAgain;
 buttonTryAgain.onclick = () => playAgain();
+document.addEventListener('DOMContentLoaded', () => {
+  getRandomQuestion();
+});
 
 export default shadow;
