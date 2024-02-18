@@ -8,7 +8,7 @@
     "dev": "webpack serve --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
     "build-dev": "webpack --config webpack.dev.js",
-    "deploy": "webpack --config webpack.prod.js && npx gh-pages -d dist -e hangman"
+    "deploy": "webpack --config webpack.prod.js && npx gh-pages -d dist -e /"
   },
   "keywords": [],
   "author": "anthony-th",
