@@ -1,0 +1,40 @@
+@media (hover: hover) and (pointer: fine) {
+  .section-gallows {
+    .text,
+    .text-woman {
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+  .section-logic {
+    .keyboard-wrapper {
+      .button {
+        &:not(:disabled) {
+          &:hover {
+            background-color: #212121;
+            border: 1px solid rgba($color: $mint, $alpha: 0.3);
+            box-shadow: 0 4px $mint;
+            color: $mint;
+          }
+        }
+      }
+    }
+  }
+  .modal-wrapper {
+    .button-try-again {
+      &:hover {
+        color: $orange;
+        animation: none;
+        border-color: $orange;
+      }
+    }
+  }
+  .footer {
+    .copyright-link {
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}

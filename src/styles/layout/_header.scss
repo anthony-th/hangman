@@ -1,0 +1,43 @@
+.header {
+  position: relative;
+  user-select: none;
+  .title {
+    font-size: 2.7rem;
+    background: linear-gradient(#acacac, #acacac, #acacac, #acacac, #464646);
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+  }
+  .header-image {
+    position: absolute;
+    top: 29px;
+    right: -29px;
+    width: 80px;
+    animation: wind 2s infinite alternate;
+    transform-origin: top center;
+    z-index: 10;
+  }
+  .subtitle {
+    visibility: hidden;
+    font-size: 3.7rem;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: -18%;
+    right: -2%;
+    color: #ec4e5c;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    background-color: rgba(17, 17, 26, 0.4);
+    letter-spacing: 0.4rem;
+  }
+  .sound-image {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: calc(50% - 40px/2);
+    right: -40px;
+    transform: rotateZ(-30deg);
+    z-index: 20;
+    cursor: pointer;
+  }
+}

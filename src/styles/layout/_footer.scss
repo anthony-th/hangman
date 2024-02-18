@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  gap: 5px;
+  width: 200px;
+  padding: 7px 0;
+  .copyright-text,
+  .copyright-link {
+    opacity: 0.8;
+    font-family: IndieFlower;
+    color: #acacac;
+    font-size: 1rem;
+    text-decoration: none;
+    user-select: none;
+  }
+}

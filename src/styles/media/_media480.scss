@@ -1,0 +1,29 @@
+@media screen and (max-width: 480px) {
+  .body {
+    gap: 5px;
+  }
+  .main {
+    padding: 0 10px 5px;
+    gap: 0;
+  }
+  .section-logic {
+    gap: 3px;
+    .question-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 84px;
+      .title-question {
+        font-size: 1.2rem;
+      }
+    }
+    .keyboard-wrapper {
+      gap: 7px 3px;
+      .button {
+        height: 30px;
+        width: 35px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
