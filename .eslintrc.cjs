@@ -25,6 +25,6 @@ module.exports = {
     'global-require': 0,
     'import/prefer-default-export': 'off',
     'no-console': 'off',
-    'props': false,
+    'no-param-reassign': 'off',
   },
 };
