@@ -11,14 +11,18 @@ import { titleModal, modalAnswerText, modal, buttonTryAgain } from './modal';
 import { soundImage } from './header';
 import dataJson from '../data/questions.json';
 
-const soundClickAz = new Audio('./assets/audio/click-enter.mp3');
-const soundClickEnter = new Audio('./assets/audio/click-a-z.mp3');
-const soundLost = new Audio('./assets/audio/lost.mp3');
-const soundWin = new Audio('./assets/audio/win.mp3');
-soundClickAz.volume = 0.1;
-soundClickEnter.volume = 0.1;
-soundLost.volume = 0.1;
-soundWin.volume = 0.1;
+const sounds = {
+  soundClickAz: new Audio('./assets/audio/click-enter.mp3'),
+  soundClickEnter: new Audio('./assets/audio/click-a-z.mp3'),
+  soundLost: new Audio('./assets/audio/lost.mp3'),
+  soundWin: new Audio('./assets/audio/win.mp3'),
+};
+
+sounds.soundClickAz.volume = 0.1;
+sounds.soundClickEnter.volume = 0.1;
+sounds.soundLost.volume = 0.1;
+sounds.soundWin.volume = 0.1;
+
 let mute = true;
 const maxFails = 6;
 let randomWord = null;
@@ -134,9 +138,9 @@ const playSound = (condition, sound) => {
 
 const soundAfterModalTransition = () => {
   if (currentFails === maxFails) {
-    playSound(true, soundLost);
+    playSound(true, sounds.soundLost);
   } else {
-    playSound(true, soundWin);
+    playSound(true, sounds.soundWin);
   }
 };
 
@@ -227,14 +231,14 @@ const pressDownKeyboard = (event) => {
     event.preventDefault();
   }
   if (event.keyCode === 13 && shadow.style.display === 'block') {
-    playSound(!mute, soundClickEnter);
+    playSound(!mute, sounds.soundClickEnter);
     playAgain();
   } else if (event.keyCode >= 65 && event.keyCode <= 90) {
     const letter = String.fromCharCode(event.keyCode);
     const buttonId = `key-id-${event.keyCode - 64}`;
     const button = buttons[buttonId];
     if (!button.disabled && !gameOver && !mute) {
-      playSound(true, soundClickAz);
+      playSound(true, sounds.soundClickAz);
     }
     buttonPress(letter, button);
   }
