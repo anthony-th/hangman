@@ -1,4 +1,4 @@
-import { createElement } from './createElement';
+import { createElement } from '../common/createElement';
 import {
   manImages,
   woman1,
@@ -18,10 +18,13 @@ const sounds = {
   soundWin: new Audio('./assets/audio/win.mp3'),
 };
 
-sounds.soundClickAz.volume = 0.1;
-sounds.soundClickEnter.volume = 0.1;
-sounds.soundLost.volume = 0.1;
-sounds.soundWin.volume = 0.1;
+const setVolume = (volume) => {
+  Object.values(sounds).forEach((sound) => {
+    sound.volume = volume;
+  });
+};
+
+setVolume(0.1);
 
 let mute = true;
 const maxFails = 6;
@@ -40,20 +43,14 @@ const maskAnswer = createElement('ul', 'list');
 const questionBlock = createElement('div', 'question-wrapper');
 const questionTitle = createElement('h2', 'title-question');
 const fails = createElement('div', 'fails');
-const failsTitle = createElement('h3', 'subtitle');
-failsTitle.textContent = 'Fails: ';
-const greenSpan = createElement('span', 'green');
-greenSpan.textContent = currentFails;
-const orangeSpan = createElement('span', 'orange');
-const slash = createElement('p', 'slash');
-slash.textContent = '/';
-orangeSpan.textContent = maxFails;
+const failsTitle = createElement('h3', 'subtitle', 'Fails:');
+const greenSpan = createElement('span', 'green', currentFails);
+const orangeSpan = createElement('span', 'orange', maxFails);
+const slash = createElement('p', 'slash', '/');
 fails.append(failsTitle, greenSpan, slash, orangeSpan);
 
 const generateMaskBlock = (letter) => {
-  const item = createElement('li', 'list-item');
-  item.textContent = '';
-  item.dataset.letter = letter;
+  const item = createElement('li', 'list-item', '', { 'data-letter': letter });
   maskAnswer.append(item);
   listItems.push(item);
 };
@@ -227,20 +224,28 @@ export const buttonPress = (letter, button) => {
 };
 
 const pressDownKeyboard = (event) => {
-  if (event.keyCode === 9) {
-    event.preventDefault();
-  }
-  if (event.keyCode === 13 && shadow.style.display === 'block') {
-    playSound(!mute, sounds.soundClickEnter);
-    playAgain();
-  } else if (event.keyCode >= 65 && event.keyCode <= 90) {
-    const letter = String.fromCharCode(event.keyCode);
-    const buttonId = `key-id-${event.keyCode - 64}`;
-    const button = buttons[buttonId];
-    if (!button.disabled && !gameOver && !mute) {
-      playSound(true, sounds.soundClickAz);
-    }
-    buttonPress(letter, button);
+  switch (event.keyCode) {
+    case 9:
+      event.preventDefault();
+      break;
+    case 13:
+    case 27:
+      if (shadow.style.display === 'block') {
+        playSound(!mute, sounds.soundClickEnter);
+        playAgain();
+      }
+      break;
+    default:
+      if (event.keyCode >= 65 && event.keyCode <= 90) {
+        const letter = String.fromCharCode(event.keyCode);
+        const buttonId = `key-id-${event.keyCode - 64}`;
+        const button = buttons[buttonId];
+        if (!button.disabled && !gameOver && !mute) {
+          playSound(true, sounds.soundClickAz);
+        }
+        buttonPress(letter, button);
+      }
+      break;
   }
 };
 

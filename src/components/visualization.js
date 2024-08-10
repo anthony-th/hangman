@@ -1,10 +1,8 @@
-import { createElement } from './createElement';
+import { createElement } from '../common/createElement';
 import { headerImage, subtitle } from './header';
 
 const createImage = (src, alt) => {
-  const img = createElement('img', alt);
-  img.src = src;
-  img.alt = '';
+  const img = createElement('img', alt, '', { src, alt: '' });
   return img;
 };
 
@@ -32,8 +30,7 @@ const womanImages = [
   createImage('./assets/img/c8.webp', 'woman-img'),
 ];
 
-const newGame = createElement('button', 'text');
-newGame.textContent = 'new game?';
+const newGame = createElement('button', 'text', 'new game?');
 
 manWrapper.append(...manImages);
 womanWrapper.append(woman1, ...womanImages);
