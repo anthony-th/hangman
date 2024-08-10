@@ -1,4 +1,4 @@
-import { createElement } from './createElement';
+import { createElement } from '../common/createElement';
 import { buttons, functionBlock, buttonPress } from './game';
 
 const createKeyboard = () => {

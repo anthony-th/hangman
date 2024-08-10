@@ -1,4 +1,4 @@
-import { createElement } from './createElement';
+import { createElement } from '../common/createElement';
 import { imagesWrapper } from './visualization';
 import { modal } from './modal';
 import { keyboard } from './keyboard';

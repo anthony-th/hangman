@@ -1,4 +1,4 @@
-import { createElement } from './createElement';
+import { createElement } from '../common/createElement';
 
 const modal = createElement('div', 'modal-wrapper');
 const titleModal = createElement('h2', 'title-modal');

@@ -1,4 +1,4 @@
-import { createElement } from './createElement';
+import { createElement } from '../common/createElement';
 import {
   manImages,
   woman1,
