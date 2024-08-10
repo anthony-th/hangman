@@ -5,8 +5,7 @@ const createKeyboard = () => {
   const keyboard = createElement('div', 'keyboard-wrapper');
   for (let charCode = 65; charCode <= 90; charCode += 1) {
     const letter = String.fromCharCode(charCode);
-    const button = createElement('button', 'button');
-    button.textContent = letter;
+    const button = createElement('button', 'button', letter);
     const buttonId = `key-id-${charCode - 64}`;
     button.id = buttonId;
     keyboard.append(button);
