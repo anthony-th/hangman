@@ -6,6 +6,8 @@
 
 [Hangman](<https://en.wikipedia.org/wiki/Hangman_(game)>) is a classic word game in which you must find the correct answer by guessing letters one at a time.
 
+<spoiler>*There is an Easter egg within the project.*</spoiler>
+
 ### This project was implemented according to the criteria and rules outlined below:
 
 ### Game rules
