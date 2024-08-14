@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 @media (hover: hover) and (pointer: fine) {
   .section-gallows {
     .text,

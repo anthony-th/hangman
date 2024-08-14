@@ -2,7 +2,7 @@
   "name": "hangman",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.common.js",
+  "exports": "./src/index.js",
   "scripts": {
     "lint": "eslint .",
     "dev": "webpack serve --config webpack.dev.js --open",
