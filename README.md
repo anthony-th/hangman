@@ -79,6 +79,6 @@
     - [x] a body part is added to the gallows
 - [x] The clicked/pressed letter is disabled
 - [x] The body parts appear on the gallows in the logical order (head, body, left arm, right arm, left leg, right leg)
-- [x] When the user runs out of 6 attempts or wins the game, the modal window appears: +10
+- [x] When the user runs out of 6 attempts or wins the game, the modal window appears
 - [x] The modal window includes the message about the game's outcome (winning or losing), the secret word and the 'play again' button
 - [x] When the user clicks the 'play again' button, the game starts over by showing a new question and resetting the gallows, the incorrect guesses counter and the underscores for the secret word
