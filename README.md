@@ -65,7 +65,7 @@
 - It is strongly recommended to use eslint and prettier.
 
 
-#### CrossCheck Criteria
+### CrossCheck Criteria
 *It is recommended to print the secret word in the browser's console to facilitate the cross-check process.*
 
 - [x] Responsive/adaptive UI from 1440px to 360px viewport
