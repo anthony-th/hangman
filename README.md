@@ -46,7 +46,7 @@
     - the underscores are **updated** according to the new secret word _(the same secret word can't be used as an answer to more than one question)_;
     - an incorrect guesses counter is **set to 0**.
 
-#### Main functional requirements
+### Main functional requirements
 
 - The design must be adaptive (or responsive), that includes desktop (1440px <= width), tablet (768px <= width < 1440px) and mobile (360px <= width < 768px). When switching between versions everything must be displayed correctly, all functionality must be present, no content must disappear or be left beyond the screen.
 - Initially, `body` in the `index.html` file **must be empty**, all necessary elements are generated using JS.
