@@ -2,7 +2,7 @@
 
 .section-gallows {
   width: 360px;
-  height: 400px;
+  height: 390px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@
   .gallows,
   .woman-gallows {
     width: 360px;
-    height: 394.38px;
+    height: 390px;
   }
   .woman-gallows {
     position: relative;
@@ -47,114 +47,35 @@
   .gallows-woman {
     position: absolute;
     top: 6%;
-    right: 0;
-    width: 100%;
-    height: 94%;
+    right: 28%;
+    width: 144px;
+    height: 347px;
     animation: windForWoMan 3.7s infinite alternate;
-    transform-origin: top center;
+    transform-origin: center top;
     .woman-img {
-      position: absolute;
-      width: 136.97px;
-      height: 369.89px;
-      top: -2%;
-      right: calc(61% - 80px);
-      z-index: 7;
       visibility: hidden;
-      &:nth-child(2) {
-        top: 33.1%;
-        width: 68.27px;
-        height: 51.34px;
-        right: 48.9%;
-        z-index: 7;
-      }
-      &:nth-child(3) {
-        top: 42.2%;
-        width: 40.26px;
-        height: 33.72px;
-        right: 49.2%;
-        z-index: 5;
-      }
-      &:nth-child(4) {
-        top: 33.5%;
-        width: 82px;
-        height: 92px;
-        right: 48.2%;
-        z-index: 9;
-      }
-      &:nth-child(5) {
-        top: 37.8%;
-        width: 44px;
-        height: 42px;
-        right: 65.5%;
-        z-index: 7;
-      }
-      &:nth-child(6) {
-        top: 53.5%;
-        width: 106.77px;
-        height: 93.86px;
-        right: 32%;
-        z-index: 8;
-      }
-      &:nth-child(7) {
-        top: 60.6%;
-        width: 47.53px;
-        height: 45.76px;
-        right: 40.2%;
-        z-index: 8;
-      }
+      position: absolute;
+      width: 100%;
+      top: 0%;
+      right: 27%;
+      z-index: 7;
     }
   }
   .gallows-man {
     position: absolute;
-    top: 17%;
-    right: 32.5%;
-    width: 103px;
-    height: 209px;
+    top: 18.9%;
+    right: 37.9%;
+    width: 75px;
+    height: 174px;
     animation: windForMan 1.7s infinite alternate;
     transform-origin: top center;
     .img {
       position: absolute;
-      width: 62px;
-      height: 67px;
-      top: 0%;
-      right: calc(50% - 62px/2);
+      width: 100%;
+      top: 0;
+      right: 0;
       z-index: 7;
       visibility: hidden;
-      &:nth-child(2) {
-        top: 25%;
-        height: 100px;
-        width: 27px;
-        right: 55%;
-        z-index: 6;
-      }
-      &:nth-child(3) {
-        top: 18.4%;
-        height: 59.16px;
-        width: 54px;
-        right: 19%;
-        z-index: 5;
-      }
-      &:nth-child(4) {
-        top: 38%;
-        height: 59.16px;
-        width: 54px;
-        right: 69%;
-        z-index: 5;
-      }
-      &:nth-child(5) {
-        top: 68%;
-        height: 59.16px;
-        width: 57.6px;
-        right: 24.3%;
-        z-index: 6;
-      }
-      &:nth-child(6) {
-        top: 68%;
-        height: 67px;
-        width: 39.6px;
-        right: 60%;
-        z-index: 7;
-      }
     }
   }
 }

@@ -61,12 +61,8 @@ const endTranslateY = (answer) => {
 };
 
 const resetGameVisibility = () => {
-  manImages.forEach((manImg) => {
-    manImg.style.visibility = 'hidden';
-  });
-  womanImages.forEach((womanImg) => {
-    womanImg.style.visibility = 'hidden';
-  });
+  manImages.style.visibility = 'hidden';
+  womanImages.style.visibility = 'hidden';
   newGame.className = imagesWrapper.contains(gallows) ? 'text' : 'text-woman';
 };
 
@@ -127,8 +123,6 @@ const playAgain = () => {
 
 const playSound = (condition, sound) => {
   if (condition) {
-    sound.pause();
-    sound.currentTime = 0;
     sound.play();
   }
 };
@@ -145,32 +139,15 @@ questionBlock.append(questionTitle);
 functionBlock.append(maskAnswer, questionBlock, fails);
 
 const updateVisibility = () => {
-  const showParts = (manIndex, womanIndex) => {
-    manImages[manIndex].style.visibility = 'visible';
-    womanImages[womanIndex].style.visibility = 'visible';
-  };
+  if (currentFails >= 1 && currentFails <= 6) {
+    manImages.style.visibility = 'visible';
+    womanImages.style.visibility = 'visible';
 
-  switch (currentFails) {
-    case 1:
-      showParts(0, 0);
-      break;
-    case 2:
-      showParts(1, 1);
-      break;
-    case 3:
-      showParts(2, 2);
-      break;
-    case 4:
-      showParts(3, 3);
-      break;
-    case 5:
-      showParts(4, 4);
-      break;
-    case 6:
-      showParts(5, 5);
-      break;
-    default:
-      break;
+    const manImageSrc = `./assets/img/man/man${currentFails}.webp`;
+    const womanImageSrc = `./assets/img/syrus/syrus${currentFails}.webp`;
+
+    manImages.src = manImageSrc;
+    womanImages.src = womanImageSrc;
   }
 };
 
@@ -251,9 +228,7 @@ const pressDownKeyboard = (event) => {
 
 const toggleSound = () => {
   mute = !mute;
-  soundImage.src = mute
-    ? './assets/img/mute.webp'
-    : './assets/img/sound-on.webp';
+  soundImage.src = `./assets/img/${mute ? 'mute' : 'sound-on'}.webp`;
   localStorage.setItem('mute', mute);
 };
 
