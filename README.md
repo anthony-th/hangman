@@ -24,12 +24,13 @@
 ```console
     npm install
 ```
+
 ### How to play?
 
 After installation, you need to run webpack-dev-server:
 
 ```console
-npm run dev
+    npm run dev
 ```
 or play online **[<u>now</u>](https://anthony-th.github.io/hangman/ "live demo")**
 
