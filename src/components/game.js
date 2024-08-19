@@ -1,12 +1,5 @@
 import { createElement } from '../common/createElement';
-import {
-  manImages,
-  woman1,
-  womanImages,
-  imagesWrapper,
-  gallows,
-  newGame,
-} from './visualization';
+import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from './visualization';
 import { titleModal, modalAnswerText, modal, buttonTryAgain } from './modal';
 import { soundImage } from './header';
 import dataJson from '../data/questions.json';
@@ -67,9 +60,7 @@ const resetGameVisibility = () => {
 };
 
 const getRandomQuestion = () => {
-  let unusedQuestion = dataJson.filter(
-    (question) => !wasQuestions.includes(question.id)
-  );
+  let unusedQuestion = dataJson.filter((question) => !wasQuestions.includes(question.id));
   if (unusedQuestion.length === 0) {
     wasQuestions = [];
     unusedQuestion = dataJson;
@@ -93,9 +84,7 @@ const getRandomQuestion = () => {
   letters.forEach((letter) => generateMaskBlock(letter));
   if (isReloadPage) {
     modalAnswerText.textContent = `${randomWord.answer}`;
-    console.log(
-      "Please, don't forget to switch to the English keyboard layout."
-    );
+    console.log("Please, don't forget to switch to the English keyboard layout.");
     isReloadPage = false;
   }
   console.log(`Answer: ${randomWord.answer}`);
@@ -104,9 +93,7 @@ const getRandomQuestion = () => {
 
 const playAgain = () => {
   resetGameVisibility();
-  woman1.style.visibility = imagesWrapper.contains(gallows)
-    ? 'hidden'
-    : 'visible';
+  woman1.style.visibility = imagesWrapper.contains(gallows) ? 'hidden' : 'visible';
   shadow.style.display = 'none';
   modal.style.transform = 'translateY(-100vh)';
   currentFails = 0;
@@ -235,9 +222,7 @@ const toggleSound = () => {
 const muteStatus = localStorage.getItem('mute');
 if (muteStatus !== null) {
   mute = JSON.parse(muteStatus);
-  soundImage.src = mute
-    ? './assets/img/mute.webp'
-    : './assets/img/sound-on.webp';
+  soundImage.src = mute ? './assets/img/mute.webp' : './assets/img/sound-on.webp';
 }
 
 soundImage.onclick = toggleSound;

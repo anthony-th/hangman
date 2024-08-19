@@ -1,9 +1,4 @@
-export const createElement = (
-  tag,
-  className,
-  textContent = '',
-  attributes = {}
-) => {
+export const createElement = (tag, className, textContent = '', attributes = {}) => {
   const element = document.createElement(tag);
   element.className = className;
   element.textContent = textContent;

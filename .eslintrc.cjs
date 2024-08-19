@@ -3,28 +3,20 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['airbnb-base', 'prettier'],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: ['.eslintrc.{js,cjs,json}'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
+  extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: 12,
     sourceType: 'module',
   },
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
-    'global-require': 0,
     'import/prefer-default-export': 'off',
+    'global-require': 0,
     'no-console': 'off',
+    'arrow-body-style': ['error', 'as-needed'],
     'no-param-reassign': ['error', { props: false }],
+    'no-undef': 'error',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };
