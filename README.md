@@ -1,12 +1,37 @@
 # Hangman game
 
-![screenshot](./src/assets/img/readme.webp)
+![Static Badge](https://img.shields.io/badge/JavaScript-323330?style=flat&logo=javascript&logoColor=F7DF1E) ![Static Badge](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white) ![Static Badge](https://img.shields.io/badge/webpack-gray?logo=webpack) ![Static Badge](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+
+
+![screenshot](./src/assets/img/readme.webp "project preview")
+
+[View a demo](https://anthony-th.github.io/hangman/ "live demo")
 
 ### Project's Description
 
 [Hangman](<https://en.wikipedia.org/wiki/Hangman_(game)>) is a classic word game in which you must find the correct answer by guessing letters one at a time.
 
-<spoiler>*There is an Easter egg within the project.*</spoiler>
+*There is an Easter egg within the project.*
+
+### Installation
+
+1. Clone the repo:
+```console
+    https://github.com/anthony-th/hangman.git
+```
+
+2. Install the NPM packages in the project folder:
+```console
+    npm install
+```
+### How to play?
+
+After installation, you need to run webpack-dev-server:
+
+```console
+npm run dev
+```
+or play online **[<u>now</u>](https://anthony-th.github.io/hangman/ "live demo")**
 
 ### This project was implemented according to the criteria and rules outlined below:
 
@@ -47,14 +72,14 @@
     - the question is **changed**;
     - the underscores are **updated** according to the new secret word _(the same secret word can't be used as an answer to more than one question)_;
     - an incorrect guesses counter is **set to 0**.
-
+---
 ### Main functional requirements
 
 - The design must be adaptive (or responsive), that includes desktop (1440px <= width), tablet (768px <= width < 1440px) and mobile (360px <= width < 768px). When switching between versions everything must be displayed correctly, all functionality must be present, no content must disappear or be left beyond the screen.
 - Initially, `body` in the `index.html` file **must be empty**, all necessary elements are generated using JS.
 - Both at the beginning and in the end of the game, the question-answer pair must be **chosen randomly** (it's recommended to have at least 10 question-answer pairs).
 - The application can be done in **English or in Russian**.
-
+---
 ### Technical requirements
 - The application is displayed correctly and functions properly in the latest version of Google Chrome.
 - It is not allowed to use:
@@ -65,8 +90,7 @@
     - TypeScript.
 - You can use CSS preprocessors (SASS, SCSS) and normalize.css.
 - It is strongly recommended to use eslint and prettier.
-
-
+---
 ### CrossCheck Criteria
 *It is recommended to print the secret word in the browser's console to facilitate the cross-check process.*
 
