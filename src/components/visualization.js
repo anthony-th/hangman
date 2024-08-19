@@ -12,10 +12,7 @@ const gallows = createImage('./assets/img/man/gallows.webp', 'gallows');
 const manImages = createImage('./assets/img/man/man1.webp', 'img');
 
 const womanWrapper = createElement('div', 'gallows-woman');
-const womanGallows = createImage(
-  './assets/img/syrus/beam.webp',
-  'woman-gallows'
-);
+const womanGallows = createImage('./assets/img/syrus/beam.webp', 'woman-gallows');
 const woman1 = createImage('./assets/img/syrus/ball.webp', 'woman-img');
 const womanImages = createImage('./assets/img/syrus/syrus1.webp', 'woman-img');
 

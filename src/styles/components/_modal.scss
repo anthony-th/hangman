@@ -9,8 +9,8 @@
   width: 340px;
   height: 330px;
   position: fixed;
-  left: calc(50% - 340px/2);
-  top: calc(50% - 330px/2);
+  left: calc(50% - 340px / 2);
+  top: calc(50% - 330px / 2);
   z-index: 50;
   background-color: #242424;
   border-radius: 10px;
@@ -50,15 +50,7 @@
     outline: none;
     border: 1px solid $white;
     border-radius: 5px;
-    background: linear-gradient(
-      to right,
-      #78418c,
-      $mint,
-      #7e9799,
-      $orange,
-      #c11771,
-      #c93b59,
-    );
+    background: linear-gradient(to right, #78418c, $mint, #7e9799, $orange, #c11771, #c93b59);
     background-size: 300%;
     background-position: -100%;
     background-clip: text;
