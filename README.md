@@ -17,12 +17,12 @@
 
 1. Clone the repo:
 ```console
-    git clone https://github.com/anthony-th/hangman.git
+git clone https://github.com/anthony-th/hangman.git
 ```
 
 2. Install the NPM packages in the project folder:
 ```console
-    npm install
+npm install
 ```
 
 ## How to play?
@@ -30,7 +30,7 @@
 After installation, you need to run webpack-dev-server:
 
 ```console
-    npm run dev
+npm run dev
 ```
 or play online **[<u>now</u>](https://anthony-th.github.io/hangman/ "live demo")**
 
