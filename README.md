@@ -17,7 +17,7 @@
 
 1. Clone the repo:
 ```console
-    https://github.com/anthony-th/hangman.git
+    git clone https://github.com/anthony-th/hangman.git
 ```
 
 2. Install the NPM packages in the project folder:
