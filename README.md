@@ -13,26 +13,35 @@
 
 *There is an Easter egg within the project.*
 
-## Installation
+### Quick Start
 
-1. Clone the repo:
-```console
+Follow these steps to set up the project locally on your machine.
+
+*Prerequisites*
+
+Make sure you have the following installed on your machine:
+
+   - [Git](https://git-scm.com/)
+   - [Node.js](https://nodejs.org/en)
+   - [npm](https://www.npmjs.com/) (Node Package Manager)
+
+1. Clone the Repository:
+```bash
 git clone https://github.com/anthony-th/hangman.git
+cd hangman
 ```
-
 2. Install the NPM packages in the project folder:
-```console
+```bash
 npm install
 ```
 
-## How to play?
+3. Running the Project
 
-After installation, you need to run webpack-dev-server:
-
-```console
+```bash
 npm run dev
 ```
-or play online **[<u>now</u>](https://anthony-th.github.io/hangman/ "live demo")**
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+Or play online **[<u>now</u>](https://anthony-th.github.io/hangman/ "live demo")**
 
 ## This project was implemented according to the criteria and rules outlined below:
 
