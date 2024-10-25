@@ -28,10 +28,10 @@ let gameOver = false;
 let wasQuestions = [];
 let isReloadPage = true;
 let lastQuestion = null;
-export const buttons = {};
+const buttons = {};
 
 const shadow = createElement('div', 'shadow');
-export const functionBlock = createElement('div', 'section-logic');
+const functionBlock = createElement('div', 'section-logic');
 const maskAnswer = createElement('ul', 'list');
 const questionBlock = createElement('div', 'question-wrapper');
 const questionTitle = createElement('h2', 'title-question');
@@ -138,7 +138,7 @@ const updateVisibility = () => {
   }
 };
 
-export const buttonPress = (letter, button) => {
+const buttonPress = (letter, button) => {
   if (gameOver || button.disabled) {
     return;
   }
@@ -235,4 +235,4 @@ document.addEventListener('DOMContentLoaded', () => {
   getRandomQuestion();
 });
 
-export default shadow;
+export { buttons, functionBlock, buttonPress, shadow };
