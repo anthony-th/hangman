@@ -1,4 +1,4 @@
-import { createElement } from '../common/createElement';
+import { createElement } from './common/createElement';
 
 export const header = createElement('header', 'header');
 const title = createElement('h1', 'title', 'hangman');

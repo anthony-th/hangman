@@ -1,4 +1,4 @@
-import { createElement } from '../common/createElement';
+import { createElement } from './common/createElement';
 import { manImages, woman1, womanImages, imagesWrapper, gallows, newGame } from './visualization';
 import { titleModal, modalAnswerText, modal, buttonTryAgain } from './modal';
 import { soundImage } from './header';
