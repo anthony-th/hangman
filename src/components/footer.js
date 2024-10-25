@@ -10,4 +10,5 @@ const linkAuthor = createElement('a', 'copyright-link', 'anthony-th', {
 const copyrightYeah = createElement('p', 'copyright-text', '© 2024');
 
 footer.append(copyrightText, linkAuthor, copyrightYeah);
+
 export { footer };

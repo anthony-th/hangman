@@ -13,4 +13,5 @@ const soundImage = createElement('img', 'sound-image', '', {
 });
 
 header.append(title, headerImage, subtitle, soundImage);
+
 export { header, title, subtitle, headerImage, soundImage };
